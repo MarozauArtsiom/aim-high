@@ -31,3 +31,21 @@
     border-radius: 100px;
     border: 0.3px solid #A9A9A9;
 }
+
+.c-color-picker-label__label {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.c-color-picker-label__color {
+    color: #FFF;
+    font-weight: 400;
+    line-height: 26px; /* 162.5% */
+    letter-spacing: 0.16px;
+    margin-left: 12px;
+}
+
+
+.c-color-picker-label__color .m-upper-case {
+    text-transform: uppercase;
+}

@@ -6,12 +6,18 @@
 
 body {
   background: #050006;
+  font-family: 'ClashDisplay-Semibold', sans-serif;
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px; /* 162.5% */
+  letter-spacing: 0.16px;
 }
 
 .c-layout {
   align-self: stretch;
   padding: var(--padding-horizontal) var(--padding-vertical);
-  color: #FFF;
   overflow: hidden;
 }
 
@@ -21,10 +27,9 @@ body {
 }
 
 .c-title {
-    margin-top: 50px;
-    width: 700px;
+    margin-top: 40px;
+    width: 690px;
 
-    font-family: "Clash Display-Semibold", Helvetica;
     font-size: 64px;
     font-style: normal;
     font-weight: 600;

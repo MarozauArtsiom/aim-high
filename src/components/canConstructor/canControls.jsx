@@ -2,6 +2,7 @@ import FileUploadButton from "./fileUploadButton/fileUploadButton";
 import { CirclePicker } from "react-color";
 import { useState } from "react";
 import { Button } from "@mui/material";
+import classNames from "classnames";
 
 const CAN_COLOR_LABEL_MAP = {
   "#FDFDFD": "Silver",
@@ -16,9 +17,15 @@ const countInRow = 7;
 function ColorPicker({ colors, onChange, valueLabel, label, color }) {
   return (
     <div>
-      <label>
-        <span>{label}</span>
-        <span>{valueLabel || color}</span>
+      <label className="c-color-picker-label">
+        <span className="c-color-picker-label__label">{label}</span>
+        <span
+          className={classNames("c-color-picker-label__color", {
+            "m-upper-case": !valueLabel,
+          })}
+        >
+          {valueLabel || color}
+        </span>
       </label>
       <CirclePicker
         className="react-color__circle"
@@ -41,7 +48,7 @@ export default function CanControls() {
   const handleChangeColor =
     (colorSetter) =>
     ({ hex }) => {
-      colorSetter(hex);
+      colorSetter(hex.toUpperCase());
     };
 
   function handleFileUpload() {
@@ -113,7 +120,12 @@ export default function CanControls() {
           />
         </div>
       </div>
-      <Button variant="contained" color="primary" fullWidth={false}>
+      <Button
+        variant="contained"
+        color="primary"
+        fullWidth={false}
+        style={{ width: 205 }}
+      >
         Download Mock up
       </Button>
     </div>
