@@ -1,8 +1,9 @@
 import FileUploadButton from "./fileUploadButton/fileUploadButton";
-import { CirclePicker } from "react-color";
+import { CirclePicker, PhotoshopPicker as ReactColorPicker } from "react-color";
 import { useState } from "react";
-import { Button } from "@mui/material";
+import { Button, Popover } from "@mui/material";
 import classNames from "classnames";
+import UnderlinedText from "./../underlineText";
 
 const CAN_COLOR_LABEL_MAP = {
   "#FDFDFD": "Silver",
@@ -14,18 +15,47 @@ const circleSize = 24;
 const circleSpacing = 8;
 const countInRow = 7;
 
-function ColorPicker({ colors, onChange, valueLabel, label, color }) {
+function ColorPicker({
+  colors,
+  onChange,
+  valueLabel,
+  label,
+  color,
+  isCustomColorAllowed,
+}) {
+  const [isCustomColorVisible, setIsCustomColorVisible] = useState(false);
+  const [colorValueBeforeOpen, setColorValueBeforeOpen] = useState(color);
+
+  function handleOpenCustomColor() {
+    setIsCustomColorVisible(true);
+    setColorValueBeforeOpen(color);
+  }
+
+  function handleCloseCustomColor() {
+    setIsCustomColorVisible(false);
+    if (colorValueBeforeOpen !== color) {
+      onChange({ hex: colorValueBeforeOpen });
+    }
+  }
+
+  function handleAcceptCustomColor() {
+    setIsCustomColorVisible(false);
+  }
+
   return (
     <div>
       <label className="c-color-picker-label">
         <span className="c-color-picker-label__label">{label}</span>
-        <span
+        <UnderlinedText
           className={classNames("c-color-picker-label__color", {
             "m-upper-case": !valueLabel,
           })}
+          color={color}
+          thickness={2}
+          gap={0.5}
         >
           {valueLabel || color}
-        </span>
+        </UnderlinedText>
       </label>
       <CirclePicker
         className="react-color__circle"
@@ -36,6 +66,31 @@ function ColorPicker({ colors, onChange, valueLabel, label, color }) {
         circleSpacing={circleSpacing}
         color={color}
       />
+      {isCustomColorAllowed && (
+        <div className="c-color-picker__custom-color">
+          <Button variant="text" onClick={handleOpenCustomColor}>
+            <span className="c-color-picker__custom-color-text">
+              + Custom color
+            </span>
+          </Button>
+          <Popover
+            open={isCustomColorVisible}
+            anchorOrigin={{
+              vertical: 100500,
+              horizontal: "right",
+            }}
+            onClose={handleCloseCustomColor}
+          >
+            <ReactColorPicker
+              color={color}
+              onChange={onChange}
+              disableAlpha={true}
+              onAccept={handleAcceptCustomColor}
+              onCancel={handleCloseCustomColor}
+            />
+          </Popover>
+        </div>
+      )}
     </div>
   );
 }
@@ -48,7 +103,7 @@ export default function CanControls() {
   const handleChangeColor =
     (colorSetter) =>
     ({ hex }) => {
-      colorSetter(hex.toUpperCase());
+      colorSetter(hex?.toUpperCase());
     };
 
   function handleFileUpload() {
@@ -92,7 +147,7 @@ export default function CanControls() {
             onChange={handleChangeColor(setStickerColor)}
             label="sticker color"
             color={stickerColor}
-            isCustomAllowed={true}
+            isCustomColorAllowed={true}
           />
         </div>
         <div>
@@ -116,7 +171,7 @@ export default function CanControls() {
             onChange={handleChangeColor(setBackgroundColor)}
             label="BACKGROUND COLOR"
             color={backgroundColor}
-            isCustomAllowed={true}
+            isCustomColorAllowed={true}
           />
         </div>
       </div>

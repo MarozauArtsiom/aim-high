@@ -21,7 +21,15 @@ const darkTheme = createTheme({
       styleOverrides: {
         root: {
           color: "#FFF",
+        },
+        contained: {
           backgroundColor: "#19468D",
+        },
+        text: {
+          "&:hover": {
+            color: "#1243FF",
+            backgroundColor: "transparent",
+          },
         },
       },
     },
