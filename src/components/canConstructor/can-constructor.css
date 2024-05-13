@@ -1,0 +1,8 @@
+.c-can-constructor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1150px;
+    gap: 50px;
+    margin-top: 16px;
+}

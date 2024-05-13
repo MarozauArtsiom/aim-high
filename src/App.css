@@ -1,0 +1,69 @@
+/* define variable css */
+:root {
+  --padding-vertical: 126px;
+  --padding-horizontal: 26px;
+}
+
+body {
+  background: #050006;
+}
+
+.c-layout {
+  align-self: stretch;
+  padding: var(--padding-horizontal) var(--padding-vertical);
+  color: #FFF;
+  overflow: hidden;
+}
+
+.c-logo__main {
+    width: 100px;
+    height: 80px;
+}
+
+.c-title {
+    margin-top: 50px;
+    width: 700px;
+
+    font-family: "Clash Display-Semibold", Helvetica;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 72px; /* 112.5% */
+    letter-spacing: 0.64px;
+    text-transform: uppercase;
+}
+
+.c-footer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-footer__copyright {
+  display: flex;
+  justify-items: flex-start;
+  gap: 16px;
+  align-self: end;
+}
+
+.c-logo__footer {
+  height: 126px;
+  width: 156px;
+}
+
+.c-wave {
+  width: 500px;
+}
+
+.c-wave__top {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.c-wave__bottom {
+  position: absolute;
+  bottom: -150px;
+  right: -126px;
+}
