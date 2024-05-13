@@ -28,7 +28,9 @@ function FileUpload({ label }) {
 
   return (
     <div className="c-file-upload">
-      <label htmlFor="file-upload">{label}</label>
+      <label className="c-file-upload__label" htmlFor="file-upload">
+        {label}
+      </label>
       <TextField
         variant="outlined"
         value={fileName}

@@ -54,6 +54,8 @@ body {
 
 .c-wave {
   width: 500px;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .c-wave__top {

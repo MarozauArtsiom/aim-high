@@ -8,3 +8,14 @@
 .c-file-upload > * {
     flex-shrink: 0;
 }
+
+.c-file-upload__label {
+    color: #FFF;
+    font-family: "Clash Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px; /* 162.5% */
+    letter-spacing: 0.16px;
+    text-transform: uppercase;
+}
