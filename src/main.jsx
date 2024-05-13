@@ -1,10 +1,37 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    text: {
+      primary: "#FFF",
+    },
+    action: {
+      active: "#FFF",
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: "#FFF",
+          backgroundColor: "#19468D",
+        },
+      },
+    },
+  },
+});
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>
+);

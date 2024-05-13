@@ -6,3 +6,28 @@
     gap: 50px;
     margin-top: 16px;
 }
+
+.c-can-controls-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.c-color-picker-group {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin-bottom: 16px;
+}
+
+.c-upload-group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Add border to react-color circle */
+.react-color__circle > span > div > span > div {
+    border-radius: 100px;
+    border: 0.3px solid #A9A9A9;
+}

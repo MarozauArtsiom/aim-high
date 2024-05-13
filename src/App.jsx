@@ -1,8 +1,8 @@
-import './reset.css'
-import './App.css'
-import Logo from './components/logo/logo'
-import CanConstructor from './components/canConstructor/canConstructor'
-import WavePng from './assets/wave.png'
+import "./reset.css";
+import "./App.css";
+import Logo from "./components/logo/logo";
+import CanConstructor from "./components/canConstructor/canConstructor";
+import WavePng from "./assets/wave.png";
 
 function App() {
   return (
@@ -11,12 +11,10 @@ function App() {
         <div className="c-logo__main">
           <Logo />
         </div>
-        <div className="c-title">
-          customize your can with Aim High.
-        </div>
+        <div className="c-title">customize your can with Aim High.</div>
       </header>
       <main>
-        <img className='c-wave c-wave__top' src={WavePng} />
+        <img className="c-wave c-wave__top" src={WavePng} />
         <div>
           <CanConstructor />
         </div>
@@ -30,10 +28,10 @@ function App() {
         <div className="c-logo__footer">
           <Logo />
         </div>
-        <img className='c-wave c-wave__bottom' src={WavePng} />
+        <img className="c-wave c-wave__bottom" src={WavePng} />
       </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
