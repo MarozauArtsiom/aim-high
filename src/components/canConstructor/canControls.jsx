@@ -1,6 +1,6 @@
 import FileUploadButton from "./fileUploadButton/fileUploadButton";
 import { CirclePicker, PhotoshopPicker as ReactColorPicker } from "react-color";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Popover } from "@mui/material";
 import classNames from "classnames";
 import UnderlinedText from "./../underlineText";
@@ -95,32 +95,41 @@ function ColorPicker({
   );
 }
 
-export default function CanControls() {
+export default function CanControls({
+  onChangeLogo1,
+  onChangeLogo2,
+  onChangeCanColor,
+  onChangeStickerColor,
+  onChangeBackgroundColor,
+}) {
   const [canColor, setCanColor] = useState("#FDFDFD");
   const [stickerColor, setStickerColor] = useState("#FDFDFD");
   const [backgroundColor, setBackgroundColor] = useState("#FDFDFD");
 
-  const handleChangeColor =
-    (colorSetter) =>
-    ({ hex }) => {
-      colorSetter(hex?.toUpperCase());
-    };
+  useEffect(() => {
+    onChangeCanColor("#FDFDFD");
+    onChangeStickerColor("#FDFDFD");
+    onChangeBackgroundColor("#FDFDFD");
+  }, []);
 
-  function handleFileUpload() {
-    console.log("file uploaded");
-  }
+  const handleChangeColor =
+    (...subscribers) =>
+    ({ hex }) => {
+      const color = hex?.toUpperCase();
+      subscribers.forEach((subscriber) => subscriber(color));
+    };
 
   return (
     <div className="c-can-controls-group">
       <div className="c-upload-group">
-        <FileUploadButton label="logo 1" onFileUpload={handleFileUpload} />
-        <FileUploadButton label="logo 2" onFileUpload={handleFileUpload} />
+        <FileUploadButton label="logo 1" onFileUpload={onChangeLogo1} />
+        <FileUploadButton label="logo 2" onFileUpload={onChangeLogo2} />
       </div>
       <div className="c-color-picker-group">
         <div>
           <ColorPicker
             colors={["#FDFDFD", "#050006", "#FACC15"]}
-            onChange={handleChangeColor(setCanColor)}
+            onChange={handleChangeColor(setCanColor, onChangeCanColor)}
             label="CAN COLOR"
             valueLabel={CAN_COLOR_LABEL_MAP[canColor]}
             color={canColor}
@@ -144,7 +153,7 @@ export default function CanControls() {
               "#10B981",
               "#84CC16",
             ]}
-            onChange={handleChangeColor(setStickerColor)}
+            onChange={handleChangeColor(setStickerColor, onChangeStickerColor)}
             label="sticker color"
             color={stickerColor}
             isCustomColorAllowed={true}
@@ -168,7 +177,10 @@ export default function CanControls() {
               "#10B981",
               "#84CC16",
             ]}
-            onChange={handleChangeColor(setBackgroundColor)}
+            onChange={handleChangeColor(
+              setBackgroundColor,
+              onChangeBackgroundColor
+            )}
             label="BACKGROUND COLOR"
             color={backgroundColor}
             isCustomColorAllowed={true}

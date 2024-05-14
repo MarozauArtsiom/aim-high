@@ -6,22 +6,21 @@ import "./file-upload-button.css";
 
 const BASE_ELEMENT_HEIGHT = 48;
 
-function FileUpload({ label }) {
+function FileUpload({ label, onFileUpload }) {
   const [file, setFile] = useState(null);
-  const [fileName, setFileName] = useState("");
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       setFile(file);
-      setFileName(file.name);
+      onFileUpload?.(file);
     }
   };
 
   const clearFile = (e) => {
     setFile(null);
-    setFileName("");
     e.stopPropagation();
+    onFileUpload?.(null);
   };
 
   const fileUploadInputId = useId();
@@ -33,7 +32,7 @@ function FileUpload({ label }) {
       </label>
       <TextField
         variant="outlined"
-        value={fileName}
+        value={file?.name || ""}
         onClick={() => document.getElementById(fileUploadInputId).click()}
         InputProps={{
           endAdornment: file && (
