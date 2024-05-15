@@ -1,25 +1,25 @@
 import "./canView.css";
-import sodaHighlightsLayer from "./../../assets/images/soda/highlights.png";
-import sodaShadowsLayer from "./../../assets/images/soda/shadows.png";
-import sodaLabelColorLayer from "./../../assets/images/soda/label_color.png";
+import CanBackground from "./canBackground";
+import { CAN_COLOR_LABEL_MAP } from "./../const";
+import shadowsImage from "../../assets/images/soda/shadows.png";
+
+import edgeBlack from "../../assets/images/soda/can_top_bottom_black.png";
+
+const canEdgesImage = {
+  Yellow: edgeBlack,
+};
 
 export default function CanView({ canColor, stickerColor }) {
-  // console.log(`style={{ filter: \`hue-rotate(${stickerColor}deg)\` }}`);
-  console.log(canColor);
+  const canColorName = CAN_COLOR_LABEL_MAP[canColor];
   return (
-    <div className="soda-editor">
-      <div className="soda-container">
-        <img
-          src={sodaHighlightsLayer}
-          alt="Soda Highlight"
-          className="soda-layer"
-        />
-        <img src={sodaShadowsLayer} alt="Soda Shadows" className="soda-layer" />
-        <div
-          className="soda-layer label-color"
-          style={{ backgroundColor: stickerColor }}
-        />
-      </div>
+    <div className="soda-container">
+      <img
+        src={canEdgesImage[canColorName]}
+        alt="Soda Shadows"
+        className="soda-layer"
+      />
+      <CanBackground color={stickerColor} className="soda-layer label-color" />
+      <img src={shadowsImage} alt="Soda Shadows" className="shadows-layer" />
     </div>
   );
 }

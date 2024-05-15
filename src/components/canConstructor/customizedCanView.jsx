@@ -1,4 +1,4 @@
-import "./can-view.css";
+import "./can-custom-view.css";
 import Logo from "../logo/logo";
 import CanBackLogo from "../canBackLogo/canBackLogo";
 import { useMemo } from "react";
@@ -26,19 +26,19 @@ export default function CustomizedCanView({
   }, [logoFile2]);
 
   return (
-    <div id="can-result">
-      <div className="c-can__logo">
+    <div className="c-custom-can-view-result" id="can-result">
+      {/* <div className="c-custom-can__aim-logo">
         <Logo color={stickerColor} />
       </div>
-      <div className="c-can-custom-logo c-can-logo1">
+      <div className="c-custom-can__logo1">
         <img src={logo1} width={50} height={50} />
       </div>
-      <div className="c-can-custom-logo c-can-logo2" style={{ left: 50 }}>
+      <div className="c-custom-can__logo2" style={{ left: 50 }}>
         <img src={logo2} width={50} height={50} />
       </div>
-      <div style={{ position: "absolute" }}>
+      <div className="c-custom-can__target">
         <CanBackLogo color={stickerColor} />
-      </div>
+      </div> */}
       <CanView canColor={canColor} stickerColor={backgroundColor} />
     </div>
   );

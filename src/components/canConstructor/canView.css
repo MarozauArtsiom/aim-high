@@ -1,11 +1,7 @@
-.soda-editor {
-  text-align: center;
-}
-
 .soda-container {
   position: relative;
-  width: 300px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
 }
 
@@ -13,12 +9,22 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 640px;
   height: 100%;
 }
 
-.label-color {
-  background-color: red; /* default color */
+.shadows-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 100%;
   mix-blend-mode: multiply;
-  opacity: 1;
+}
+
+.label-color {
+  /* default color */
+  /* background-color: red; */
+  /* mix-blend-mode: multiply; */
+  /* opacity: 1; */
 }
