@@ -4,12 +4,7 @@ import { useState, useEffect } from "react";
 import { Button, Popover } from "@mui/material";
 import classNames from "classnames";
 import UnderlinedText from "./../underlineText";
-
-const CAN_COLOR_LABEL_MAP = {
-  "#FDFDFD": "Silver",
-  "#050006": "Black",
-  "#FACC15": "Yellow",
-};
+import { CAN_COLOR_LABEL_MAP } from "../const";
 
 const circleSize = 24;
 const circleSpacing = 8;

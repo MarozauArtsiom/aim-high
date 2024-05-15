@@ -57,7 +57,7 @@ function FileUpload({ label, onFileUpload }) {
         variant="contained"
         // startIcon={<FileUploadIcon />}
         onClick={() => document.getElementById(fileUploadInputId).click()}
-        sx={{ mt: 2, mt: 0 }}
+        sx={{ mt: 0 }}
         style={{ height: BASE_ELEMENT_HEIGHT }}
       >
         Select File

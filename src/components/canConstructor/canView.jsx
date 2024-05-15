@@ -1,24 +1,25 @@
+import "./canView.css";
+import sodaHighlightsLayer from "./../../assets/images/soda/highlights.png";
+import sodaShadowsLayer from "./../../assets/images/soda/shadows.png";
+import sodaLabelColorLayer from "./../../assets/images/soda/label_color.png";
+
 export default function CanView({ canColor, stickerColor }) {
+  // console.log(`style={{ filter: \`hue-rotate(${stickerColor}deg)\` }}`);
+  console.log(canColor);
   return (
-    <svg
-      width="390px"
-      height="780px"
-      viewBox="0 0 195 390"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {/* Can Body */}
-      <rect
-        x="39"
-        y="39"
-        width="117"
-        height="312"
-        rx="29"
-        fill={stickerColor}
-      />
-      {/* Top */}
-      <ellipse cx="97.5" cy="39" rx="58.5" ry="19.5" fill={canColor} />
-      {/* Bottom */}
-      <ellipse cx="97.5" cy="351" rx="58.5" ry="19.5" fill={canColor} />
-    </svg>
+    <div className="soda-editor">
+      <div className="soda-container">
+        <img
+          src={sodaHighlightsLayer}
+          alt="Soda Highlight"
+          className="soda-layer"
+        />
+        <img src={sodaShadowsLayer} alt="Soda Shadows" className="soda-layer" />
+        <div
+          className="soda-layer label-color"
+          style={{ backgroundColor: stickerColor }}
+        />
+      </div>
+    </div>
   );
 }
