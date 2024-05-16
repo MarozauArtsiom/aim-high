@@ -19,4 +19,4 @@ RUN BACKGROUND npm run serve
 
 # Create a unique link to share the app in this runner.
 # Every time someone clicks the link, we'll wake up this staging server.
-EXPOSE WEBSITE http://localhost:8080
+EXPOSE WEBSITE http://127.0.0.1:8080
