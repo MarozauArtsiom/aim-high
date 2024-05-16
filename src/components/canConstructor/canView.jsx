@@ -15,6 +15,7 @@ const canEdgesImage = {
 export default function CanView({ canColor, stickerColor }) {
   const canColorName = CAN_COLOR_LABEL_MAP[canColor];
   const linkToCap = canEdgesImage[canColorName];
+
   return (
     <div className="soda-container" aria-label="customized soda can">
       {linkToCap && (
@@ -24,7 +25,10 @@ export default function CanView({ canColor, stickerColor }) {
           className="soda-layer coda-caps-colored"
         />
       )}
-      <CanBackground color={stickerColor} className="soda-layer label-color" />
+      <CanBackground
+        color={stickerColor}
+        className="soda-layer can-background"
+      />
       <img
         src={shadowsImage}
         aria-hidden
@@ -33,7 +37,7 @@ export default function CanView({ canColor, stickerColor }) {
       />
       <div
         className="place-holder-to-keep-object-size"
-        style={{ width: 700, height: 700 }}
+        style={{ width: 600, height: 600 }}
         aria-hidden
       ></div>
     </div>

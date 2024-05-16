@@ -128,7 +128,7 @@ export default function CanControls({
       <div className="c-color-picker-group">
         <div>
           <ColorPicker
-            colors={["#FDFDFD", "#050006", "#FACC15"]}
+            colors={["#FDFDFD", "#0C0C0C", "#FACC15"]}
             onChange={handleChangeColor(setCanColor, onChangeCanColor)}
             label="CAN COLOR"
             valueLabel={CAN_COLOR_LABEL_MAP[canColor]}
@@ -145,7 +145,7 @@ export default function CanControls({
               "#4ADE80",
               "#2DD4BF",
               "#3B82F6",
-              "#050006",
+              "#0C0C0C",
               "#F43F5E",
               "#D946EF",
               "#8B5CF6",
@@ -169,7 +169,7 @@ export default function CanControls({
               "#4ADE80",
               "#2DD4BF",
               "#3B82F6",
-              "#050006",
+              "#0C0C0C",
               "#F43F5E",
               "#D946EF",
               "#8B5CF6",

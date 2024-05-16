@@ -55,7 +55,6 @@ function FileUpload({ label, onFileUpload }) {
       />
       <Button
         variant="contained"
-        // startIcon={<FileUploadIcon />}
         onClick={() => document.getElementById(fileUploadInputId).click()}
         sx={{ mt: 0 }}
         style={{ height: BASE_ELEMENT_HEIGHT }}
