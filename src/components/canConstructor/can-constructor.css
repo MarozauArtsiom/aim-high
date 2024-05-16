@@ -32,6 +32,10 @@
     border: 0.3px solid #A9A9A9;
 }
 
+.react-color__circle > span > div > span > div[title="#0C0C0C"] {
+    background: white!important;
+}
+
 .c-color-picker-label {
     display: block;
     margin-bottom: 16px;
