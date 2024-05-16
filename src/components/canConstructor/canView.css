@@ -1,5 +1,6 @@
 .soda-container {
   position: relative;
+  isolation: isolate;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -20,11 +21,4 @@
   width: 640px;
   height: 100%;
   mix-blend-mode: multiply;
-}
-
-.label-color {
-  /* default color */
-  /* background-color: red; */
-  /* mix-blend-mode: multiply; */
-  /* opacity: 1; */
 }

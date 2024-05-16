@@ -39,6 +39,7 @@ export default function CustomizedCanView({
       <div className="c-custom-can__target">
         <CanBackLogo color={stickerColor} />
       </div> */}
+      <div className="magic-background-light"></div>
       <CanView canColor={canColor} stickerColor={backgroundColor} />
     </div>
   );

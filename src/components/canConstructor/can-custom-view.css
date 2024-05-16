@@ -7,3 +7,16 @@
     top: 0;
     left: 0;
 }
+
+.magic-background-light {
+  position: absolute;
+  left: 260px;
+
+  width: 247px;
+  height: 685px;
+  flex-shrink: 0;
+
+  border-radius: 685px;
+  background: #1243FF;
+  filter: blur(150px);
+}
