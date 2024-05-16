@@ -25,10 +25,32 @@ body {
     height: 80px;
 }
 
-.c-title {
+@media (max-width: 1540px) {
+  .c-title {
     margin-top: 40px;
     width: 690px;
+  }
+}
 
+@media (max-width: 1200px) {
+  .c-logo__main {
+    display: none;
+  }
+  .c-title {
+    align-self: center;
+    width: auto;
+  }
+}
+
+@media (max-width: 1300px) {
+  .c-header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.c-title {
+    margin-top: 20px;
     font-size: 64px;
     font-style: normal;
     font-weight: 600;
@@ -42,6 +64,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-top: 16px;
 }
 
 .c-footer__copyright {

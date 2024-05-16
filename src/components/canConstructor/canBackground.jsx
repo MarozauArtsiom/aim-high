@@ -51,7 +51,7 @@ function CanBackground({ color: newColor, className }) {
         alt="Canned Water"
         style={{ display: "none" }}
       />
-      <img className={className} src={src} alt="Modified Image" />
+      <img className={className} src={src} />
     </div>
   );
 }

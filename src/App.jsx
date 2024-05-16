@@ -7,7 +7,7 @@ import WavePng from "./assets/wave.png";
 function App() {
   return (
     <div className="c-layout">
-      <header>
+      <header className="c-header">
         <div className="c-logo__main">
           <Logo />
         </div>
