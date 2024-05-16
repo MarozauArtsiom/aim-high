@@ -8,7 +8,7 @@ export default function CanConstructor() {
   const [logoFile1, setLogo1] = useState(null);
   const [logoFile2, setLogo2] = useState(null);
   const [canColor, setCanColor] = useState("#FDFDFD");
-  const [stickerColor, setStickerColor] = useState("#FDFDFD");
+  const [stickerColor, setStickerColor] = useState("#0C0C0C");
   const [backgroundColor, setBackgroundColor] = useState("#FDFDFD");
 
   return (
@@ -30,6 +30,9 @@ export default function CanConstructor() {
             onChangeCanColor={setCanColor}
             onChangeStickerColor={setStickerColor}
             onChangeBackgroundColor={setBackgroundColor}
+            canColor={canColor}
+            stickerColor={stickerColor}
+            backgroundColor={backgroundColor}
           />
         </Grid>
       </Grid>

@@ -1,6 +1,6 @@
 import FileUploadButton from "./fileUploadButton/fileUploadButton";
 import { CirclePicker, ChromePicker as ReactColorPicker } from "react-color";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Popover, Button } from "@mui/material";
 import classNames from "classnames";
 import UnderlinedText from "./../underlineText";
@@ -88,25 +88,12 @@ export default function CanControls({
   onChangeCanColor,
   onChangeStickerColor,
   onChangeBackgroundColor,
+
+  canColor,
+  stickerColor,
+  backgroundColor,
 }) {
-  const [canColor, setCanColor] = useState("#FDFDFD");
-  const [stickerColor, setStickerColor] = useState("#FDFDFD");
-  const [backgroundColor, setBackgroundColor] = useState("#FDFDFD");
-
   const [isExportLoading, setIsExportLoading] = useState(false);
-
-  useEffect(() => {
-    onChangeCanColor("#FDFDFD");
-    onChangeStickerColor("#FDFDFD");
-    onChangeBackgroundColor("#FDFDFD");
-  }, []);
-
-  const handleChangeColor =
-    (...subscribers) =>
-    ({ hex }) => {
-      const color = hex?.toUpperCase();
-      subscribers.forEach((subscriber) => subscriber(color));
-    };
 
   const handleExportClick = async () => {
     setIsExportLoading(true);
@@ -129,7 +116,7 @@ export default function CanControls({
         <div>
           <ColorPicker
             colors={["#FDFDFD", "#0C0C0C", "#FACC15"]}
-            onChange={handleChangeColor(setCanColor, onChangeCanColor)}
+            onChange={onChangeCanColor}
             label="CAN COLOR"
             valueLabel={CAN_COLOR_LABEL_MAP[canColor]}
             color={canColor}
@@ -153,7 +140,7 @@ export default function CanControls({
               "#10B981",
               "#84CC16",
             ]}
-            onChange={handleChangeColor(setStickerColor, onChangeStickerColor)}
+            onChange={onChangeStickerColor}
             label="sticker color"
             color={stickerColor}
             isCustomColorAllowed={true}
@@ -177,10 +164,7 @@ export default function CanControls({
               "#10B981",
               "#84CC16",
             ]}
-            onChange={handleChangeColor(
-              setBackgroundColor,
-              onChangeBackgroundColor
-            )}
+            onChange={onChangeBackgroundColor}
             label="BACKGROUND COLOR"
             color={backgroundColor}
             isCustomColorAllowed={true}

@@ -3,13 +3,14 @@ import Logo from "../logo/logo";
 import CanBackLogo from "../canBackLogo/canBackLogo";
 import { useMemo } from "react";
 import CanView from "./canView";
+import BrandLogoMock from "../../assets/brand_logo_mock.svg";
 
-function useCreateObjectUrl(file) {
+function useCreateObjectUrl(file, defaultValue = null) {
   return useMemo(() => {
     if (file) {
       return URL.createObjectURL(file);
     }
-    return null;
+    return defaultValue;
   }, [file]);
 }
 
@@ -20,31 +21,31 @@ export default function CustomizedCanView({
   stickerColor,
   backgroundColor,
 }) {
-  const logo1 = useCreateObjectUrl(logoFile1);
+  const logo1 = useCreateObjectUrl(logoFile1, BrandLogoMock);
 
-  const logo2 = useCreateObjectUrl(logoFile2);
+  const logo2 = useCreateObjectUrl(logoFile2, BrandLogoMock);
 
   return (
     <div className="c-custom-can-view-result" id="can-result">
-      {/* <div className="c-custom-can__aim-logo">
+      <div className="c-custom-can__aim-logo">
         <Logo color={stickerColor} />
       </div>
-      {logo1 && (
-        <div className="c-custom-can__logo1">
-          <img src={logo1} width={50} height={50} />
-        </div>
-      )}
-      {logo2 && (
-        <div className="c-custom-can__logo2" style={{ left: 50 }}>
-          <img src={logo2} width={50} height={50} />
-        </div>
-      )} */}
-      {/* <div className="c-custom-can__target">
+      <div className="c-custom-can__logo1">
+        <img src={logo1} width={83} height={80} />
+      </div>
+      <div className="c-custom-can__logo2">
+        <img src={logo2} width={83} height={80} />
+      </div>
+      <div className="c-custom-can__target">
         <CanBackLogo color={stickerColor} />
-      </div> */}
+      </div>
       <div className="magic-background-light"></div>
       <div id="can-result-view" className="can-result__can-view">
         <CanView canColor={canColor} stickerColor={backgroundColor} />
+      </div>
+      <div className="c-can-result__can-text" style={{ color: stickerColor }}>
+        <div className="c-can-result__water">Water</div>
+        <div className="c-can-result__can-volume">19.2 FL OZ (568 ml)</div>
       </div>
     </div>
   );

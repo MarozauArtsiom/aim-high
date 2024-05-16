@@ -3,12 +3,12 @@
 }
 
 .c-custom-can__aim-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 106px;
-    width: 126px;
-    z-index: 100500;
+  position: absolute;
+  top: 125px;
+  left: 15px;
+  height: 80px;
+  width: 100px;
+  z-index: 1000;
 }
 
 .magic-background-light {
@@ -23,9 +23,59 @@
   filter: blur(150px);
 }
 
+.export .magic-background-light {
+  display: none;
+}
+
 .c-custom-can__target {
   position: absolute;
-  z-index: 100500;
-  width: 150px;
-  left: 171px;
+  z-index: 2000;
+  width: 210px;
+  left: 20px;
+  top: 200px;
+}
+
+.c-custom-can__logo1 {
+  position: absolute;
+  z-index: 3000;
+  left: 138px;
+  top: 126px;
+}
+
+.c-custom-can__logo2 {
+  position: absolute;
+  z-index: 3000;
+  left: 85px;
+  top: 290px;
+}
+
+.c-can-result__can-text {
+  position: absolute;
+  z-index: 3000;
+  left: 20px;
+  top: 480px;
+  width: 210px;
+}
+
+.c-can-result__water {
+  text-align: center;
+  font-family: "ClashGrotesk-Bold";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 34px;
+  /* 121.429% */
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+}
+
+.c-can-result__can-volume {
+  text-align: center;
+  font-family: "ClashDisplay-Regular";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 114.286% */
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
 }
