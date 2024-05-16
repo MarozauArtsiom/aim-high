@@ -111,12 +111,14 @@ export default function CanControls({
 
   const handleExportClick = async () => {
     setIsExportLoading(true);
+    const canvas = document.getElementById("can-result");
     try {
-      const canvas = document.getElementById("can-result-view");
+      canvas.classList.add("print");
       const dataUrl = await toPng(canvas);
       await download(dataUrl, "aim-high.png");
     } finally {
       setIsExportLoading(false);
+      canvas.classList.remove("print");
     }
   };
 
