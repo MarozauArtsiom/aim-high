@@ -32,12 +32,6 @@ function ColorPicker({
     setIsCustomColorVisible(false);
   }
 
-  const { x: customPopoverX, y: customPopoverY } =
-    customColorPickerRef.current?.getBoundingClientRect?.() || {
-      x: 1400,
-      y: 100500,
-    };
-
   const handleColorChange =
     (onChange) =>
     ({ hex }) =>
@@ -77,9 +71,10 @@ function ColorPicker({
             </Button>
             <Popover
               open={isCustomColorVisible}
+              anchorEl={customColorPickerRef.current}
               anchorOrigin={{
-                vertical: customPopoverX,
-                horizontal: customPopoverY,
+                vertical: "bottom",
+                horizontal: "right",
               }}
               onClose={handleCloseCustomColor}
             >

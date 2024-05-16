@@ -2,7 +2,7 @@ import "./reset.css";
 import "./App.css";
 import Logo from "./components/logo/logo";
 import CanConstructor from "./components/canConstructor/canConstructor";
-import WavePng from "./assets/wave.png";
+import WavePng from "./assets/wave-cropped.png";
 
 function App() {
   return (

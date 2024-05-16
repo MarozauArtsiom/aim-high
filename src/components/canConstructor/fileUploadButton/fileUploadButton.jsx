@@ -4,12 +4,18 @@ import IconButton from "@mui/material/IconButton";
 import ClearIcon from "@mui/icons-material/Clear";
 import "./file-upload-button.css";
 import ImageCropper from "../../imageCropper/imageCropper";
+import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 const BASE_ELEMENT_HEIGHT = 48;
 
 function FileUpload({ label, onFileUpload }) {
   const [file, setFile] = useState(null);
   const [isCropperOpen, setIsCropperOpen] = useState(false);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -67,14 +73,23 @@ function FileUpload({ label, onFileUpload }) {
         onChange={handleFileChange}
         style={{ display: "none" }}
       />
-      <Button
-        variant="contained"
-        onClick={handleLoadFile}
-        sx={{ mt: 0 }}
-        style={{ height: BASE_ELEMENT_HEIGHT }}
-      >
-        Select File
-      </Button>
+      {isMobile ? (
+        <IconButton
+          onClick={handleLoadFile}
+          style={{ height: BASE_ELEMENT_HEIGHT }}
+        >
+          <CloudDownloadIcon />
+        </IconButton>
+      ) : (
+        <Button
+          variant="contained"
+          onClick={handleLoadFile}
+          sx={{ mt: 0 }}
+          style={{ height: BASE_ELEMENT_HEIGHT }}
+        >
+          Select File
+        </Button>
+      )}
       {/* <ImageCropper
         file={file}
         isOpen={isCropperOpen}
