@@ -66,7 +66,7 @@ function ColorPicker({
             open={isCustomColorVisible}
             anchorOrigin={{
               vertical: 100500,
-              horizontal: 1150,
+              horizontal: 1400,
             }}
             onClose={handleCloseCustomColor}
           >
