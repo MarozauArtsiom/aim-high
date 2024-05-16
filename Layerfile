@@ -15,6 +15,7 @@ ENV NODE_OPTIONS=--max-old-space-size=8192
 COPY . .
 RUN npm install
 RUN npm run build
+RUN timeout 30s command
 RUN BACKGROUND npm run serve
 
 # Create a unique link to share the app in this runner.
