@@ -66,12 +66,12 @@ const ImageCropper = ({ file, onChange, isOpen, onClose }) => {
       {imageSrc && (
         <div style={{ padding: 16 }}>
           <ReactCrop
-            src={imageSrc}
             crop={crop}
             ref={imageRef}
             onChange={(newCrop) => setCrop(newCrop)}
             onComplete={onCropComplete}
           />
+          <img src={imageSrc}></img>
           <Button
             variant="contained"
             onClick={onClose}
