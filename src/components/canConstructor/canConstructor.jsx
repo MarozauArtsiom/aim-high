@@ -2,6 +2,7 @@ import "./can-constructor.css";
 import CustomizedCanView from "./customizedCanView.jsx";
 import CanControls from "./canControls.jsx";
 import { useState } from "react";
+import { Grid, Container } from "@mui/material";
 
 export default function CanConstructor() {
   const [logoFile1, setLogo1] = useState(null);
@@ -11,21 +12,27 @@ export default function CanConstructor() {
   const [backgroundColor, setBackgroundColor] = useState("#FDFDFD");
 
   return (
-    <div className="c-can-constructor">
-      <CustomizedCanView
-        logoFile1={logoFile1}
-        logoFile2={logoFile2}
-        canColor={canColor}
-        stickerColor={stickerColor}
-        backgroundColor={backgroundColor}
-      />
-      <CanControls
-        onChangeLogo1={setLogo1}
-        onChangeLogo2={setLogo2}
-        onChangeCanColor={setCanColor}
-        onChangeStickerColor={setStickerColor}
-        onChangeBackgroundColor={setBackgroundColor}
-      />
-    </div>
+    <Container maxWidth="lg">
+      <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid item sm={12} md={6}>
+          <CustomizedCanView
+            logoFile1={logoFile1}
+            logoFile2={logoFile2}
+            canColor={canColor}
+            stickerColor={stickerColor}
+            backgroundColor={backgroundColor}
+          />
+        </Grid>
+        <Grid item sm={12} md={6}>
+          <CanControls
+            onChangeLogo1={setLogo1}
+            onChangeLogo2={setLogo2}
+            onChangeCanColor={setCanColor}
+            onChangeStickerColor={setStickerColor}
+            onChangeBackgroundColor={setBackgroundColor}
+          />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

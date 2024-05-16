@@ -9,16 +9,21 @@
 .soda-layer {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -195px;
   width: 640px;
   height: 100%;
 }
 
 .shadows-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 640px;
-  height: 100%;
+  height: 640px;
   mix-blend-mode: multiply;
+}
+
+.label-color {
+  top: -31px;
+}
+
+.coda-caps-colored {
+  height: 640px;
 }

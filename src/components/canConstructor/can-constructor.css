@@ -23,7 +23,7 @@
 .c-upload-group {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
 }
 
 /* Add border to react-color circle */

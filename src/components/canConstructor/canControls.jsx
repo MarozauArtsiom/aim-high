@@ -1,10 +1,13 @@
 import FileUploadButton from "./fileUploadButton/fileUploadButton";
 import { CirclePicker, ChromePicker as ReactColorPicker } from "react-color";
 import { useState, useEffect } from "react";
-import { Button, Popover } from "@mui/material";
+import { Popover, Button } from "@mui/material";
 import classNames from "classnames";
 import UnderlinedText from "./../underlineText";
 import { CAN_COLOR_LABEL_MAP } from "../const";
+import { toPng } from "html-to-image";
+import download from "downloadjs";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 const circleSize = 24;
 const circleSpacing = 8;
@@ -90,6 +93,8 @@ export default function CanControls({
   const [stickerColor, setStickerColor] = useState("#FDFDFD");
   const [backgroundColor, setBackgroundColor] = useState("#FDFDFD");
 
+  const [isExportLoading, setIsExportLoading] = useState(false);
+
   useEffect(() => {
     onChangeCanColor("#FDFDFD");
     onChangeStickerColor("#FDFDFD");
@@ -103,8 +108,19 @@ export default function CanControls({
       subscribers.forEach((subscriber) => subscriber(color));
     };
 
+  const handleExportClick = async () => {
+    setIsExportLoading(true);
+    try {
+      const canvas = document.getElementById("can-result-view");
+      const dataUrl = await toPng(canvas);
+      await download(dataUrl, "aim-high.png");
+    } finally {
+      setIsExportLoading(false);
+    }
+  };
+
   return (
-    <div className="c-can-controls-group" style={{ visibility: "hidden" }}>
+    <div className="c-can-controls-group">
       <div className="c-upload-group">
         <FileUploadButton label="logo 1" onFileUpload={onChangeLogo1} />
         <FileUploadButton label="logo 2" onFileUpload={onChangeLogo2} />
@@ -171,14 +187,17 @@ export default function CanControls({
           />
         </div>
       </div>
-      <Button
+      <LoadingButton
         variant="contained"
         color="primary"
         fullWidth={false}
-        style={{ width: 205 }}
+        style={{ width: 205, height: 40 }}
+        onClick={handleExportClick}
+        loading={isExportLoading}
+        disabled={isExportLoading}
       >
         Download Mock up
-      </Button>
+      </LoadingButton>
     </div>
   );
 }
