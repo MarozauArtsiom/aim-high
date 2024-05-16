@@ -61,10 +61,14 @@ function ColorPicker({
         circleSpacing={circleSpacing}
         color={color}
       />
-      <div ref={customColorPickerRef}>
+      <div>
         {isCustomColorAllowed && (
           <div className="c-color-picker__custom-color">
-            <Button variant="text" onClick={handleOpenCustomColor}>
+            <Button
+              variant="text"
+              onClick={handleOpenCustomColor}
+              ref={customColorPickerRef}
+            >
               <span className="c-color-picker__custom-color-text">
                 + Custom color
               </span>
