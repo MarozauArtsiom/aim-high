@@ -113,12 +113,10 @@ export default function CanControls({
     setIsExportLoading(true);
     const canvas = document.getElementById("can-result");
     try {
-      canvas.classList.add("print");
       const dataUrl = await toPng(canvas);
       await download(dataUrl, "aim-high.png");
     } finally {
       setIsExportLoading(false);
-      canvas.classList.remove("print");
     }
   };
 
@@ -172,7 +170,7 @@ export default function CanControls({
               "#4ADE80",
               "#2DD4BF",
               "#3B82F6",
-              "#0C0C0C",
+              "#333333",
               "#F43F5E",
               "#D946EF",
               "#8B5CF6",

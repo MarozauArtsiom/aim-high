@@ -26,27 +26,29 @@ export default function CustomizedCanView({
   const logo2 = useCreateObjectUrl(logoFile2, BrandLogoMock);
 
   return (
-    <div className="c-custom-can-view-result" id="can-result">
-      <div className="c-custom-can__aim-logo">
-        <Logo color={stickerColor} />
-      </div>
-      <div className="c-custom-can__logo1">
-        <img src={logo1} width={83} height={80} />
-      </div>
-      <div className="c-custom-can__logo2">
-        <img src={logo2} width={83} height={80} />
-      </div>
-      <div className="c-custom-can__target">
-        <CanBackLogo color={stickerColor} />
-      </div>
+    <>
       <div className="magic-background-light"></div>
-      <div id="can-result-view" className="can-result__can-view">
-        <CanView canColor={canColor} stickerColor={backgroundColor} />
+      <div className="c-custom-can-view-result" id="can-result">
+        <div className="c-custom-can__aim-logo">
+          <Logo color={stickerColor} />
+        </div>
+        <div className="c-custom-can__logo1">
+          <img src={logo1} width={83} height={80} />
+        </div>
+        <div className="c-custom-can__logo2">
+          <img src={logo2} width={83} height={80} />
+        </div>
+        <div className="c-custom-can__target">
+          <CanBackLogo color={stickerColor} />
+        </div>
+        <div id="can-result-view" className="can-result__can-view">
+          <CanView canColor={canColor} stickerColor={backgroundColor} />
+        </div>
+        <div className="c-can-result__can-text" style={{ color: stickerColor }}>
+          <div className="c-can-result__water">Water</div>
+          <div className="c-can-result__can-volume">19.2 FL OZ (568 ml)</div>
+        </div>
       </div>
-      <div className="c-can-result__can-text" style={{ color: stickerColor }}>
-        <div className="c-can-result__water">Water</div>
-        <div className="c-can-result__can-volume">19.2 FL OZ (568 ml)</div>
-      </div>
-    </div>
+    </>
   );
 }

@@ -18,7 +18,6 @@ body {
 .c-layout {
   align-self: stretch;
   padding: var(--padding-horizontal) var(--padding-vertical);
-  overflow: hidden;
 }
 
 .c-logo__main {
@@ -53,8 +52,11 @@ body {
 }
 
 .c-logo__footer {
+  position: absolute;
   height: 126px;
   width: 156px;
+  right: -100px;
+  bottom: 0;
 }
 
 .c-wave {
