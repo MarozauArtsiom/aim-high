@@ -104,7 +104,7 @@ export default function CanControls({
     };
 
   return (
-    <div className="c-can-controls-group">
+    <div className="c-can-controls-group" style={{ visibility: "hidden" }}>
       <div className="c-upload-group">
         <FileUploadButton label="logo 1" onFileUpload={onChangeLogo1} />
         <FileUploadButton label="logo 2" onFileUpload={onChangeLogo2} />

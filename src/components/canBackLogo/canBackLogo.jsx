@@ -1,12 +1,6 @@
 export default function CanBackLogo({ color }) {
   return (
-    <svg
-      width="298"
-      height="377"
-      viewBox="0 0 298 377"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 298 377" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M144.103 103.675C144.103 103.675 144.113 103.675 144.123 103.675C144.123 103.675 144.123 103.675 144.123 103.665L144.103 103.686V103.675Z"
         fill={color}

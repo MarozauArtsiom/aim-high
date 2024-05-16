@@ -1,16 +1,19 @@
 .c-custom-can-view-result {
-  width: 500px;
+  position: relative;
 }
 
 .c-custom-can__aim-logo {
     position: absolute;
     top: 0;
     left: 0;
+    height: 106px;
+    width: 126px;
+    z-index: 100500;
 }
 
 .magic-background-light {
   position: absolute;
-  left: 260px;
+  left: 195px;
 
   width: 247px;
   height: 685px;
@@ -19,4 +22,11 @@
   border-radius: 685px;
   background: #1243FF;
   filter: blur(150px);
+}
+
+.c-custom-can__target {
+  position: absolute;
+  z-index: 100500;
+  width: 150px;
+  left: 171px;
 }
