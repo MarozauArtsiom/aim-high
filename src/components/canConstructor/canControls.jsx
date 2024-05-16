@@ -1,5 +1,5 @@
 import FileUploadButton from "./fileUploadButton/fileUploadButton";
-import { CirclePicker, PhotoshopPicker as ReactColorPicker } from "react-color";
+import { CirclePicker, ChromePicker as ReactColorPicker } from "react-color";
 import { useState, useEffect } from "react";
 import { Button, Popover } from "@mui/material";
 import classNames from "classnames";
@@ -19,21 +19,12 @@ function ColorPicker({
   isCustomColorAllowed,
 }) {
   const [isCustomColorVisible, setIsCustomColorVisible] = useState(false);
-  const [colorValueBeforeOpen, setColorValueBeforeOpen] = useState(color);
 
   function handleOpenCustomColor() {
     setIsCustomColorVisible(true);
-    setColorValueBeforeOpen(color);
   }
 
   function handleCloseCustomColor() {
-    setIsCustomColorVisible(false);
-    if (colorValueBeforeOpen !== color) {
-      onChange({ hex: colorValueBeforeOpen });
-    }
-  }
-
-  function handleAcceptCustomColor() {
     setIsCustomColorVisible(false);
   }
 
@@ -72,7 +63,7 @@ function ColorPicker({
             open={isCustomColorVisible}
             anchorOrigin={{
               vertical: 100500,
-              horizontal: "right",
+              horizontal: 1150,
             }}
             onClose={handleCloseCustomColor}
           >
@@ -80,8 +71,6 @@ function ColorPicker({
               color={color}
               onChange={onChange}
               disableAlpha={true}
-              onAccept={handleAcceptCustomColor}
-              onCancel={handleCloseCustomColor}
             />
           </Popover>
         </div>

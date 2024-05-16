@@ -4,6 +4,15 @@ import CanBackLogo from "../canBackLogo/canBackLogo";
 import { useMemo } from "react";
 import CanView from "./canView";
 
+function useCreateObjectUrl(file) {
+  return useMemo(() => {
+    if (file) {
+      return URL.createObjectURL(file);
+    }
+    return null;
+  }, [file]);
+}
+
 export default function CustomizedCanView({
   logoFile1,
   logoFile2,
@@ -11,34 +20,28 @@ export default function CustomizedCanView({
   stickerColor,
   backgroundColor,
 }) {
-  const logo1 = useMemo(() => {
-    if (logoFile1) {
-      return URL.createObjectURL(logoFile1);
-    }
-    return null;
-  }, [logoFile1]);
+  const logo1 = useCreateObjectUrl(logoFile1);
 
-  const logo2 = useMemo(() => {
-    if (logoFile2) {
-      return URL.createObjectURL(logoFile2);
-    }
-    return null;
-  }, [logoFile2]);
+  const logo2 = useCreateObjectUrl(logoFile2);
 
   return (
     <div className="c-custom-can-view-result" id="can-result">
-      {/* <div className="c-custom-can__aim-logo">
+      <div className="c-custom-can__aim-logo">
         <Logo color={stickerColor} />
       </div>
-      <div className="c-custom-can__logo1">
-        <img src={logo1} width={50} height={50} />
-      </div>
-      <div className="c-custom-can__logo2" style={{ left: 50 }}>
-        <img src={logo2} width={50} height={50} />
-      </div>
+      {logo1 && (
+        <div className="c-custom-can__logo1">
+          <img src={logo1} width={50} height={50} />
+        </div>
+      )}
+      {logo2 && (
+        <div className="c-custom-can__logo2" style={{ left: 50 }}>
+          <img src={logo2} width={50} height={50} />
+        </div>
+      )}
       <div className="c-custom-can__target">
         <CanBackLogo color={stickerColor} />
-      </div> */}
+      </div>
       <div className="magic-background-light"></div>
       <CanView canColor={canColor} stickerColor={backgroundColor} />
     </div>
