@@ -1,6 +1,6 @@
 import FileUploadButton from "./fileUploadButton/fileUploadButton";
 import { CirclePicker, ChromePicker as ReactColorPicker } from "react-color";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Popover, Button } from "@mui/material";
 import classNames from "classnames";
 import UnderlinedText from "./../underlineText";
@@ -21,6 +21,7 @@ function ColorPicker({
   color,
   isCustomColorAllowed,
 }) {
+  const customColorPickerRef = useRef(null);
   const [isCustomColorVisible, setIsCustomColorVisible] = useState(false);
 
   function handleOpenCustomColor() {
@@ -30,6 +31,17 @@ function ColorPicker({
   function handleCloseCustomColor() {
     setIsCustomColorVisible(false);
   }
+
+  const { x: customPopoverX, y: customPopoverY } =
+    customColorPickerRef.current?.getBoundingClientRect?.() || {
+      x: 1400,
+      y: 100500,
+    };
+
+  const handleColorChange =
+    (onChange) =>
+    ({ hex }) =>
+      onChange(hex?.toUpperCase());
 
   return (
     <div>
@@ -49,35 +61,37 @@ function ColorPicker({
       <CirclePicker
         className="react-color__circle"
         colors={colors}
-        onChangeComplete={onChange}
+        onChangeComplete={handleColorChange(onChange)}
         circleSize={circleSize}
         width={(circleSize + circleSpacing) * countInRow}
         circleSpacing={circleSpacing}
         color={color}
       />
-      {isCustomColorAllowed && (
-        <div className="c-color-picker__custom-color">
-          <Button variant="text" onClick={handleOpenCustomColor}>
-            <span className="c-color-picker__custom-color-text">
-              + Custom color
-            </span>
-          </Button>
-          <Popover
-            open={isCustomColorVisible}
-            anchorOrigin={{
-              vertical: 100500,
-              horizontal: 1400,
-            }}
-            onClose={handleCloseCustomColor}
-          >
-            <ReactColorPicker
-              color={color}
-              onChange={onChange}
-              disableAlpha={true}
-            />
-          </Popover>
-        </div>
-      )}
+      <div ref={customColorPickerRef}>
+        {isCustomColorAllowed && (
+          <div className="c-color-picker__custom-color">
+            <Button variant="text" onClick={handleOpenCustomColor}>
+              <span className="c-color-picker__custom-color-text">
+                + Custom color
+              </span>
+            </Button>
+            <Popover
+              open={isCustomColorVisible}
+              anchorOrigin={{
+                vertical: customPopoverX,
+                horizontal: customPopoverY,
+              }}
+              onClose={handleCloseCustomColor}
+            >
+              <ReactColorPicker
+                color={color}
+                onChange={handleColorChange(onChange)}
+                disableAlpha={true}
+              />
+            </Popover>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
