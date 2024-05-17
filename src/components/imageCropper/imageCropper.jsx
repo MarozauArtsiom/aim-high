@@ -62,7 +62,7 @@ const ImageCropper = ({
   // Update crop state based on input field changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-    onImageRectChange({ ...imageRect, [name]: value });
+    onImageRectChange({ ...imageRect, [name]: Number(value) });
   };
 
   return (
@@ -87,13 +87,10 @@ const ImageCropper = ({
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            marginTop={2}
+            marginBottom={1}
           >
-            <IconButton onClick={onClose}>
-              <CloseIcon />
-            </IconButton>
             <Typography variant="h6" component="div">
-              Adjust Crop
+              Position: {file?.name || ""}
             </Typography>
             <Box>
               <TextField
@@ -133,6 +130,9 @@ const ImageCropper = ({
                 style={{ width: 60, marginRight: 8 }}
               />
             </Box>
+            <IconButton onClick={onClose}>
+              <CloseIcon />
+            </IconButton>
           </Box>
           <ReactCrop
             crop={crop}
