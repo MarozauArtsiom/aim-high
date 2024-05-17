@@ -105,6 +105,11 @@ export default function CanControls({
   canColor,
   stickerColor,
   backgroundColor,
+
+  imageRect1,
+  imageRect2,
+  onImageRectChange1,
+  onImageRectChange2,
 }) {
   const [isExportLoading, setIsExportLoading] = useState(false);
 
@@ -122,8 +127,18 @@ export default function CanControls({
   return (
     <div className="c-can-controls-group">
       <div className="c-upload-group">
-        <FileUploadButton label="logo 1" onFileUpload={onChangeLogo1} />
-        <FileUploadButton label="logo 2" onFileUpload={onChangeLogo2} />
+        <FileUploadButton
+          label="logo 1"
+          onFileUpload={onChangeLogo1}
+          imageRect={imageRect1}
+          onImageRectChange={onImageRectChange1}
+        />
+        <FileUploadButton
+          label="logo 2"
+          onFileUpload={onChangeLogo2}
+          imageRect={imageRect2}
+          onImageRectChange={onImageRectChange2}
+        />
       </div>
       <div className="c-color-picker-group">
         <div>

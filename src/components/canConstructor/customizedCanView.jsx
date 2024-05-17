@@ -14,6 +14,12 @@ export default function CustomizedCanView({
   setLogoFile1,
   setLogoFile2,
 
+  imageRect1,
+  imageRect2,
+
+  onImageRectChange1,
+  onImageRectChange2,
+
   canColor,
   stickerColor,
   backgroundColor,
@@ -37,6 +43,8 @@ export default function CustomizedCanView({
         onClose={() => {
           setImageCroperProps({ isOpen: false });
         }}
+        imageRect={imageCroperProps.imageRect}
+        onImageRectChange={imageCroperProps.onImageRectChange}
       />
       <div className="c-customized-can-view-container">
         <div className="magic-background-light"></div>
@@ -52,10 +60,21 @@ export default function CustomizedCanView({
                 file: logoFile1,
                 onChange: setLogoFile1,
                 crop: logoFile1,
+                imageRect: imageRect1,
+                onImageRectChange: onImageRectChange1,
               })
             }
           >
-            <img src={logo1} width={83} height={80} />
+            <img
+              src={logo1}
+              width={imageRect1.width}
+              height={imageRect1.height}
+              style={{
+                transform: `translate(${imageRect1.x}px, ${
+                  0 - imageRect1.y
+                }px)`,
+              }}
+            />
           </div>
           <div
             className="c-custom-can__logo2"
@@ -65,10 +84,21 @@ export default function CustomizedCanView({
                 file: logoFile2,
                 onChange: setLogoFile2,
                 crop: logoFile2,
+                imageRect: imageRect2,
+                onImageRectChange: onImageRectChange2,
               })
             }
           >
-            <img src={logo2} width={83} height={80} />
+            <img
+              src={logo2}
+              width={imageRect2.width}
+              height={imageRect2.height}
+              style={{
+                transform: `translate(${imageRect2.x}px, ${
+                  0 - imageRect2.y
+                }px)`,
+              }}
+            />
           </div>
           <div className="c-custom-can__target">
             <CanBackLogo color={stickerColor} />

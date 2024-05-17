@@ -10,7 +10,7 @@ import { useTheme } from "@mui/material/styles";
 
 const BASE_ELEMENT_HEIGHT = 48;
 
-function FileUpload({ label, onFileUpload }) {
+function FileUpload({ label, onFileUpload, imageRect, onImageRectChange }) {
   const [file, setFile] = useState(null);
 
   const [isCropperOpen, setIsCropperOpen] = useState(false);
@@ -25,6 +25,7 @@ function FileUpload({ label, onFileUpload }) {
       onFileUpload?.(file);
       setIsCropperOpen(true);
     }
+    event.target.value = null;
   };
 
   const handleImageCropped = (blob) => {
@@ -35,6 +36,7 @@ function FileUpload({ label, onFileUpload }) {
     setFile(null);
     e.stopPropagation();
     onFileUpload?.(null);
+    e.target.value = null;
   };
 
   const fileUploadInputId = useId();
@@ -94,6 +96,8 @@ function FileUpload({ label, onFileUpload }) {
         isOpen={isCropperOpen}
         onClose={() => setIsCropperOpen(false)}
         onChange={handleImageCropped}
+        imageRect={imageRect}
+        onImageRectChange={onImageRectChange}
       />
     </div>
   );
