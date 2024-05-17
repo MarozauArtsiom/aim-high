@@ -20,10 +20,16 @@
   mix-blend-mode: multiply;
 }
 
+.can-water-layer {
+  width: 640px;
+  height: 640px;
+  opacity: 0.5;
+}
+
 .coda-caps-colored {
   height: 640px;
-  width: 658px;
-  left: -204px;
+  width: 640px;
+  left: -195px;
 }
 
 .can-background {

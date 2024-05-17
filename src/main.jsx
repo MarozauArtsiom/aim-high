@@ -2,9 +2,6 @@
 import "./assets/ClashDisplay_Complete/Fonts/WEB/css/clash-display.css";
 import "./assets/ClashGrotesk_Complete/Fonts/WEB/css/clash-grotesk.css";
 
-// styles
-import "./index.css";
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
