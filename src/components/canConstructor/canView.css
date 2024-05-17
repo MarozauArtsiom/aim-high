@@ -30,3 +30,7 @@
   height: 642px;
   top: -1px;
 }
+
+.can-background img:not([src]), img[src=""] {
+  display: none; /* Hides the img element */
+}
