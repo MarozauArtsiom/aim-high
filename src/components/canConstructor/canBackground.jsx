@@ -26,7 +26,6 @@ function CanBackground({ color: newColor, className }) {
 
       for (let i = 0; i < data.length; i += 4) {
         const red = data[i];
-        // Adjust the condition to better define "red" as needed
         if (red > 10) {
           data[i] = targetR;
           data[i + 1] = targetG;
