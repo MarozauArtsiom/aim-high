@@ -52,8 +52,9 @@ export default function CustomizedCanView({
           <div className="c-custom-can__aim-logo">
             <Logo color={stickerColor} />
           </div>
-          <div
-            className="c-custom-can__logo1"
+          <button
+            className="c-custom-can__logo1 button-reset"
+            disabled={!logoFile1}
             onClick={() =>
               setImageCroperProps({
                 isOpen: true,
@@ -75,9 +76,10 @@ export default function CustomizedCanView({
                 }px)`,
               }}
             />
-          </div>
-          <div
-            className="c-custom-can__logo2"
+          </button>
+          <button
+            className="c-custom-can__logo2 button-reset"
+            disabled={!logoFile2}
             onClick={() =>
               setImageCroperProps({
                 isOpen: true,
@@ -99,7 +101,7 @@ export default function CustomizedCanView({
                 }px)`,
               }}
             />
-          </div>
+          </button>
           <div className="c-custom-can__target">
             <CanBackLogo color={stickerColor} />
           </div>
