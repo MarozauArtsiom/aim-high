@@ -62,7 +62,10 @@ export default function CustomizedCanView({
                 onChange: setLogoFile1,
                 crop: logoFile1,
                 imageRect: imageRect1,
-                onImageRectChange: onImageRectChange1,
+                onImageRectChange: (val) => {
+                  setImageCroperProps((crop) => ({ ...crop, imageRect: val }));
+                  onImageRectChange1(val);
+                },
               })
             }
           >
@@ -87,7 +90,10 @@ export default function CustomizedCanView({
                 onChange: setLogoFile2,
                 crop: logoFile2,
                 imageRect: imageRect2,
-                onImageRectChange: onImageRectChange2,
+                onImageRectChange: (val) => {
+                  setImageCroperProps((crop) => ({ ...crop, imageRect: val }));
+                  onImageRectChange2(val);
+                },
               })
             }
           >
