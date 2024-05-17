@@ -39,7 +39,7 @@ function ColorPicker({
 
   return (
     <div>
-      <label className="c-color-picker-label">
+      <label className="c-color-picker-label" onClick={handleOpenCustomColor}>
         <span className="c-color-picker-label__label">{label}</span>
         <UnderlinedText
           className={classNames("c-color-picker-label__color", {
