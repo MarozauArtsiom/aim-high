@@ -12,7 +12,7 @@ export default function CanConstructor() {
   const [backgroundColor, setBackgroundColor] = useState("#FDFDFD");
 
   return (
-    <Box marginTop={4}>
+    <Box md={{ mt: 4 }}>
       <Container maxWidth="lg">
         <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item sm={12} md={6}>

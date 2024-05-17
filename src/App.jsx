@@ -21,7 +21,9 @@ function App() {
       </main>
       <footer className="c-footer">
         <ul className="c-footer__copyright">
-          <li>2023 AIM HIGH. ALL RIGHTS RESERVED.</li>
+          <li className="c-footer__big-text">
+            2024 AIM HIGH. ALL RIGHTS RESERVED.
+          </li>
           <li>Privacy</li>
           <li>Terms</li>
         </ul>
