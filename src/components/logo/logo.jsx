@@ -1,11 +1,9 @@
-import Logo from "../../assets/logo.svg";
-
 export default function LogoComponent({ color = "white" }) {
   return (
     <div
       style={{
-        "z-index": -1,
-        "pointer-events": "none",
+        zIndex: -1,
+        pointerEvents: "none",
       }}
     >
       <svg viewBox="0 0 156 126" fill="none" xmlns="http://www.w3.org/2000/svg">

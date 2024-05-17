@@ -5,7 +5,7 @@ import { useCreateObjectUrl } from "../../hooks/image";
 import CanView from "./canView";
 import BrandLogoMock from "../../assets/brand_logo_mock.svg";
 import ImageCropper from "../imageCropper/imageCropper";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function CustomizedCanView({
   logoFile1,
@@ -27,6 +27,8 @@ export default function CustomizedCanView({
   const logo1 = useCreateObjectUrl(logoFile1, BrandLogoMock);
   const logo2 = useCreateObjectUrl(logoFile2, BrandLogoMock);
 
+  const canContainerRef = useRef(null);
+
   const [imageCroperProps, setImageCroperProps] = useState({
     isOpen: false,
     file: null,
@@ -37,6 +39,7 @@ export default function CustomizedCanView({
   return (
     <>
       <ImageCropper
+        anchorEl={canContainerRef.current}
         isOpen={imageCroperProps.isOpen}
         onChange={imageCroperProps.onChange}
         file={imageCroperProps.file}
@@ -46,7 +49,7 @@ export default function CustomizedCanView({
         imageRect={imageCroperProps.imageRect}
         onImageRectChange={imageCroperProps.onImageRectChange}
       />
-      <div className="c-customized-can-view-container">
+      <div className="c-customized-can-view-container" ref={canContainerRef}>
         <div className="magic-background-light"></div>
         <div className="c-custom-can-view-result" id="can-result">
           <div className="c-custom-can__aim-logo">

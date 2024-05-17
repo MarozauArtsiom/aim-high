@@ -1,4 +1,4 @@
-import { useState, useId } from "react";
+import { useState, useId, useRef } from "react";
 import { Button, TextField, InputAdornment } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -14,6 +14,8 @@ function FileUpload({ label, onFileUpload, imageRect, onImageRectChange }) {
   const [file, setFile] = useState(null);
 
   const [isCropperOpen, setIsCropperOpen] = useState(false);
+
+  const fileUploadRef = useRef(null);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -46,7 +48,7 @@ function FileUpload({ label, onFileUpload, imageRect, onImageRectChange }) {
   };
 
   return (
-    <div className="c-file-upload">
+    <div className="c-file-upload" ref={fileUploadRef}>
       <label className="c-file-upload__label" htmlFor="file-upload">
         {label}
       </label>
@@ -92,6 +94,7 @@ function FileUpload({ label, onFileUpload, imageRect, onImageRectChange }) {
         </Button>
       )}
       <ImageCropper
+        anchorEl={fileUploadRef.current}
         file={file}
         isOpen={isCropperOpen}
         onClose={() => setIsCropperOpen(false)}
