@@ -5,7 +5,7 @@ import { Popover, Button } from "@mui/material";
 import classNames from "classnames";
 import UnderlinedText from "./../underlineText";
 import { CAN_COLOR_LABEL_MAP } from "../const";
-import { toPng } from "html-to-image";
+import { toCanvas } from "html-to-image";
 import download from "downloadjs";
 import LoadingButton from "@mui/lab/LoadingButton";
 
@@ -115,13 +115,57 @@ export default function CanControls({
 
   const handleExportClick = async () => {
     setIsExportLoading(true);
-    const canvas = document.getElementById("can-result");
-    try {
-      const dataUrl = await toPng(canvas);
-      await download(dataUrl, "aim-high.png");
-    } finally {
-      setIsExportLoading(false);
-    }
+
+    setTimeout(async () => {
+      // Create a temporary container for the elements
+      const container = document.createElement("div");
+      container.style.left = "-9999px"; // Move it far off-screen
+      container.style.top = "0";
+      container.style.width = "100%"; // Ensure it's large enough to hold all content
+      container.style.height = "auto";
+      container.style.display = "flex";
+      container.style.zIndex = "-100";
+
+      // Append the main canvas div
+      const canvas = document.getElementById("can-result").cloneNode(true);
+      canvas.style.padding = "0px 0px 70px";
+      container.appendChild(canvas);
+
+      const labelContainer = document.createElement("div");
+      labelContainer.style.position = "absolute";
+      labelContainer.style.top = "55px";
+      labelContainer.style.left = "450px";
+
+      // Find and append all color picker labels
+      const labels = Array.from(
+        document.getElementsByClassName("c-color-picker-label")
+      );
+      labels.forEach((label) => {
+        const clonedLabel = label.cloneNode(true);
+        clonedLabel.style.margin = "2px";
+        labelContainer.appendChild(clonedLabel);
+      });
+
+      container.appendChild(labelContainer);
+      container.style.width = "800px";
+      container.style.overflow = "hidden";
+
+      // Append the temporary container to the body to be in the document flow
+      document.body.appendChild(container);
+
+      try {
+        // Use html2canvas or similar to take a snapshot
+        const canvas = await toCanvas(container, { scale: 1 });
+        const dataUrl = canvas.toDataURL("image/png");
+        await download(dataUrl, "aim-high.png");
+      } catch (error) {
+        console.error("Error capturing the export:", error);
+      } finally {
+        setIsExportLoading(false);
+        // Clean up: remove the temporary container
+        document.body.removeChild(container);
+      }
+    }, 300);
   };
 
   return (
