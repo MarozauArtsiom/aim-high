@@ -26,7 +26,7 @@ export default function CustomizedCanView({
   const logo2 = useCreateObjectUrl(logoFile2, BrandLogoMock);
 
   return (
-    <>
+    <div className="c-customized-can-view-container">
       <div className="magic-background-light"></div>
       <div className="c-custom-can-view-result" id="can-result">
         <div className="c-custom-can__aim-logo">
@@ -49,6 +49,6 @@ export default function CustomizedCanView({
           <div className="c-can-result__can-volume">19.2 FL OZ (568 ml)</div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

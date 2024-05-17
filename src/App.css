@@ -68,7 +68,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 .c-footer__copyright {
@@ -82,7 +82,7 @@ body {
   position: absolute;
   height: 126px;
   width: 156px;
-  right: -100px;
+  right: -50px;
   bottom: 0;
 }
 
@@ -96,10 +96,4 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-}
-
-.c-wave__bottom {
-  position: absolute;
-  bottom: -50px;
-  right: -126px;
 }

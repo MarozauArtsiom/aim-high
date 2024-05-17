@@ -28,7 +28,6 @@ function App() {
         <div className="c-logo__footer">
           <Logo />
         </div>
-        <img className="c-wave c-wave__bottom" src={WavePng} />
       </footer>
     </div>
   );

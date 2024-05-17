@@ -79,3 +79,7 @@
   letter-spacing: 0.14px;
   text-transform: uppercase;
 }
+
+.c-customized-can-view-container {
+  margin-top: -26px;
+}
