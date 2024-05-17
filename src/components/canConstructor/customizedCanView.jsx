@@ -1,18 +1,9 @@
 import "./can-custom-view.css";
 import Logo from "../logo/logo";
 import CanBackLogo from "../canBackLogo/canBackLogo";
-import { useMemo } from "react";
+import { useCreateObjectUrl } from "../../hooks/image";
 import CanView from "./canView";
 import BrandLogoMock from "../../assets/brand_logo_mock.svg";
-
-function useCreateObjectUrl(file, defaultValue = null) {
-  return useMemo(() => {
-    if (file) {
-      return URL.createObjectURL(file);
-    }
-    return defaultValue;
-  }, [file]);
-}
 
 export default function CustomizedCanView({
   logoFile1,

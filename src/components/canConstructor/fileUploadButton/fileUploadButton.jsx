@@ -90,12 +90,12 @@ function FileUpload({ label, onFileUpload }) {
           Select File
         </Button>
       )}
-      {/* <ImageCropper
+      <ImageCropper
         file={file}
         isOpen={isCropperOpen}
         onClose={() => setIsCropperOpen(false)}
         onChange={handleImageCropped}
-      /> */}
+      />
     </div>
   );
 }

@@ -1,24 +1,16 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import "react-image-crop/dist/ReactCrop.css";
+import "./image-cropper.css";
+
+import { useState, useCallback, useRef } from "react";
 import { Popover, Button } from "@mui/material";
 import ReactCrop from "react-image-crop";
-import "react-image-crop/dist/ReactCrop.css";
+import { useCreateObjectUrl } from "../../hooks/image";
 
 const ImageCropper = ({ file, onChange, isOpen, onClose }) => {
-  const [imageSrc, setImageSrc] = useState(null);
   const [crop, setCrop] = useState({ aspect: 16 / 9 });
   const imageRef = useRef(null);
 
-  useEffect(() => {
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImageSrc(reader.result);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setImageSrc(null);
-    }
-  }, [file]);
+  const imageSrc = useCreateObjectUrl(file);
 
   const onCropComplete = useCallback(
     (crop) => {
@@ -55,23 +47,32 @@ const ImageCropper = ({ file, onChange, isOpen, onClose }) => {
       open={isOpen}
       onClose={onClose}
       anchorOrigin={{
-        vertical: "bottom",
+        vertical: "top",
         horizontal: "center",
       }}
       transformOrigin={{
         vertical: "top",
         horizontal: "center",
       }}
+      slotProps={{
+        paper: {
+          style: { maxWidth: 700, maxHeight: 700 },
+        },
+      }}
     >
       {imageSrc && (
-        <div style={{ padding: 16 }}>
+        <div className="c-image-cropper-container">
           <ReactCrop
             crop={crop}
             ref={imageRef}
             onChange={(newCrop) => setCrop(newCrop)}
             onComplete={onCropComplete}
-          />
-          <img src={imageSrc}></img>
+          >
+            <img
+              className="c-image-cropper-container__image"
+              src={imageSrc}
+            ></img>
+          </ReactCrop>
           <Button
             variant="contained"
             onClick={onClose}
