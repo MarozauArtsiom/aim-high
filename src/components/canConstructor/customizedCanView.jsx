@@ -31,9 +31,6 @@ export default function CustomizedCanView({
 
   const [imageCroperProps, setImageCroperProps] = useState({
     isOpen: false,
-    file: null,
-    crop: null,
-    onChange: null,
   });
 
   return (
