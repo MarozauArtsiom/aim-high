@@ -12,6 +12,8 @@ const BASE_ELEMENT_HEIGHT = 48;
 
 function FileUpload({ label, onFileUpload }) {
   const [file, setFile] = useState(null);
+  const [crop, setCrop] = useState(null);
+
   const [isCropperOpen, setIsCropperOpen] = useState(false);
 
   const theme = useTheme();
@@ -21,15 +23,15 @@ function FileUpload({ label, onFileUpload }) {
     const file = event.target.files[0];
     if (file) {
       setFile(file);
+      setCrop(file);
       onFileUpload?.(file);
       setIsCropperOpen(true);
     }
   };
 
   const handleImageCropped = (blob) => {
-    setFile(blob);
+    setCrop(blob);
     onFileUpload?.(blob);
-    setIsCropperOpen(false);
   };
 
   const clearFile = (e) => {

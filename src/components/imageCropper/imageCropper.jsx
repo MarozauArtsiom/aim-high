@@ -59,13 +59,15 @@ const ImageCropper = ({ file, onChange, isOpen, onClose }) => {
         vertical: "top",
         horizontal: "center",
       }}
-      PaperProps={{
-        style: { maxWidth: 700, maxHeight: 700, padding: 20 },
+      slotProps={{
+        paper: {
+          style: { maxWidth: 700, maxHeight: 700, padding: 20 },
+        },
       }}
     >
       {imageSrc && (
         <div className="c-image-cropper-container">
-          <Box display="flex" justifyContent="space-between" marginTop={2}>
+          <Box display="flex" justifyContent="flex-end" marginTop={2}>
             <IconButton onClick={onClose}>
               <CloseIcon />
             </IconButton>
@@ -73,7 +75,7 @@ const ImageCropper = ({ file, onChange, isOpen, onClose }) => {
           <ReactCrop
             crop={crop}
             onChange={(newCrop) => setCrop(newCrop)}
-            onCropComplete={onCropComplete}
+            onComplete={onCropComplete}
           >
             <img
               ref={imageRef}
