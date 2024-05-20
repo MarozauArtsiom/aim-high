@@ -4,7 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import ClearIcon from "@mui/icons-material/Clear";
 import "./file-upload-button.css";
 import ImageCropper from "../../imageCropper/imageCropper";
-import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
@@ -81,7 +81,7 @@ function FileUpload({ label, onFileUpload, imageRect, onImageRectChange }) {
           onClick={handleLoadFile}
           style={{ height: BASE_ELEMENT_HEIGHT }}
         >
-          <CloudDownloadIcon />
+          <FileUploadIcon />
         </IconButton>
       ) : (
         <Button
