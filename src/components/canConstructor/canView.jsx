@@ -45,7 +45,7 @@ export default function CanView({ canColor, stickerColor }) {
       ></img>
       <div
         className="place-holder-to-keep-object-size"
-        style={{ width: 600, height: 600 }}
+        style={{ height: 600 }}
         aria-hidden
       ></div>
     </div>

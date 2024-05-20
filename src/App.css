@@ -16,7 +16,10 @@ body {
 }
 
 .c-layout {
-  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
   padding: var(--padding-horizontal) var(--padding-vertical);
 }
 
@@ -102,6 +105,7 @@ body {
 @media screen and (max-width: 768px) {
   .c-layout {
     padding: 16px;
+    align-items: flex-start;
   }
   .c-title {
     font-size: 24px;
