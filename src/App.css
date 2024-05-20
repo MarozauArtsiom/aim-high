@@ -34,6 +34,7 @@ body {
   line-height: 72px; /* 112.5% */
   letter-spacing: 0.64px;
   text-transform: uppercase;
+  z-index: 100;
 }
 
 .c-footer {
