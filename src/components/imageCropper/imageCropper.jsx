@@ -6,6 +6,8 @@ import { Popover, Box, IconButton, TextField, Typography } from "@mui/material";
 import ReactCrop from "react-image-crop";
 import { useCreateObjectUrl } from "../../hooks/image";
 import CloseIcon from "@mui/icons-material/Close";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 const ImageCropper = ({
   file,
@@ -25,6 +27,10 @@ const ImageCropper = ({
   const imageRef = useRef(null);
 
   const imageSrc = useCreateObjectUrl(file);
+
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  console.log("fullScreen", fullScreen);
 
   const onCropComplete = useCallback(
     (crop) => {
@@ -70,18 +76,18 @@ const ImageCropper = ({
       open={isOpen}
       onClose={onClose}
       anchorOrigin={{
-        vertical: "top",
+        vertical: fullScreen ? "bottom" : "top",
         horizontal: "right",
       }}
       transformOrigin={{
-        vertical: "top",
+        vertical: fullScreen ? "bottom" : "top",
         horizontal: "right",
       }}
       slotProps={{
         paper: {
           style: {
-            maxWidth: "50%",
-            maxHeight: "100%",
+            maxWidth: fullScreen ? "100%" : "50%",
+            maxHeight: fullScreen ? "50%" : "100%",
             padding: 20,
             zIndex: 100500,
           },
@@ -99,7 +105,7 @@ const ImageCropper = ({
             <Typography variant="h6" component="div">
               Position: {file?.name || "unknown file name"}
             </Typography>
-            <Box>
+            <Box xs={{ gap: "5px" }}>
               <TextField
                 size="small"
                 label="X"
