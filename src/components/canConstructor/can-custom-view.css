@@ -1,5 +1,6 @@
 .c-custom-can-view-result {
   position: relative;
+  padding-bottom: 20px;
 }
 
 .c-custom-can__aim-logo {
@@ -13,6 +14,7 @@
 
 .magic-background-light {
   position: absolute;
+  padding-bottom: 20px;
 
   width: 247px;
   height: 685px;
