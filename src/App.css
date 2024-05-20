@@ -21,8 +21,9 @@ body {
 }
 
 .c-logo__main {
-    width: 100px;
-    height: 80px;
+  z-index: 100;
+  width: 100px;
+  height: 80px;
 }
 
 .c-title {
