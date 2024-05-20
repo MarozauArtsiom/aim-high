@@ -90,7 +90,7 @@ const ImageCropper = ({
             marginBottom={1}
           >
             <Typography variant="h6" component="div">
-              Position: {file?.name || ""}
+              Position: {file?.name || "unknown file name"}
             </Typography>
             <Box>
               <TextField
