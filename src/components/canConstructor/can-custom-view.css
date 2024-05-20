@@ -9,7 +9,7 @@
   left: 23px;
   height: 80px;
   width: 100px;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .magic-background-light {
@@ -31,7 +31,7 @@
 
 .c-custom-can__target {
   position: absolute;
-  z-index: 2000;
+  z-index: 200;
   width: 240px;
   left: 10px;
   top: 180px;
@@ -39,21 +39,21 @@
 
 .c-custom-can__logo1 {
   position: absolute;
-  z-index: 3000;
+  z-index: 300;
   left: 141px;
   top: 117px;
 }
 
 .c-custom-can__logo2 {
   position: absolute;
-  z-index: 3000;
+  z-index: 300;
   left: 85px;
   top: 290px;
 }
 
 .c-can-result__can-text {
   position: absolute;
-  z-index: 3000;
+  z-index: 300;
   left: 20px;
   top: 480px;
   width: 210px;

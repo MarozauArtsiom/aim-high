@@ -71,14 +71,21 @@ const ImageCropper = ({
       onClose={onClose}
       anchorOrigin={{
         vertical: "top",
-        horizontal: "center",
+        horizontal: "right",
       }}
       transformOrigin={{
         vertical: "top",
-        horizontal: "center",
+        horizontal: "right",
       }}
-      PaperProps={{
-        style: { maxWidth: 700, maxHeight: 700, padding: 20 },
+      slotProps={{
+        paper: {
+          style: {
+            maxWidth: "50%",
+            maxHeight: "100%",
+            padding: 20,
+            zIndex: 100500,
+          },
+        },
       }}
     >
       {imageSrc && (
