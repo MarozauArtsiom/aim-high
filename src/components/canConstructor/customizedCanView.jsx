@@ -1,5 +1,5 @@
 import "./can-custom-view.css";
-import Logo from "../logo/logo";
+import CanAimLogo from "./can-aim-logo/can-aim-logo";
 import CanBackLogo from "../canBackLogo/canBackLogo";
 import { useCreateObjectUrl } from "../../hooks/image";
 import CanView from "./canView";
@@ -50,7 +50,7 @@ export default function CustomizedCanView({
         <div className="magic-background-light"></div>
         <div className="c-custom-can-view-result" id="can-result">
           <div className="c-custom-can__aim-logo">
-            <Logo color={stickerColor} />
+            <CanAimLogo color={stickerColor} />
           </div>
           <button
             className="c-custom-can__logo1 button-reset"

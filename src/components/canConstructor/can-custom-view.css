@@ -6,7 +6,7 @@
 .c-custom-can__aim-logo {
   position: absolute;
   top: 125px;
-  left: 15px;
+  left: 23px;
   height: 80px;
   width: 100px;
   z-index: 1000;
@@ -40,8 +40,8 @@
 .c-custom-can__logo1 {
   position: absolute;
   z-index: 3000;
-  left: 138px;
-  top: 126px;
+  left: 141px;
+  top: 117px;
 }
 
 .c-custom-can__logo2 {
