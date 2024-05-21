@@ -30,6 +30,7 @@ body {
 }
 
 .c-title {
+  position: relative;
   margin-top: 40px;
   width: 690px;
   font-size: 64px;
