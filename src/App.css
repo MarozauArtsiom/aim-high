@@ -89,7 +89,7 @@ body {
 }
 
 /* Media queries */
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: 1700px) {
   .c-header {
     display: flex;
     margin-left: 40px;
