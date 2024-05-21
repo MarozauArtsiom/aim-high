@@ -75,18 +75,18 @@ const ImageCropper = ({
       open={isOpen}
       onClose={onClose}
       anchorOrigin={{
-        vertical: fullScreen ? "bottom" : "top",
-        horizontal: "right",
+        vertical: "top",
+        horizontal: "center",
       }}
       transformOrigin={{
-        vertical: fullScreen ? "bottom" : "top",
-        horizontal: "right",
+        vertical: "top",
+        horizontal: "center",
       }}
       slotProps={{
         paper: {
           style: {
-            maxWidth: fullScreen ? "100%" : "50%",
-            maxHeight: fullScreen ? "50%" : "100%",
+            maxWidth: fullScreen ? "100vw" : "50vw",
+            maxHeight: fullScreen ? "100vh" : "70vh",
             padding: 20,
             zIndex: 100500,
           },
