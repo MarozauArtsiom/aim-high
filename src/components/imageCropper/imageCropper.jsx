@@ -10,6 +10,14 @@ import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Draggable from "react-draggable";
 
+const initCropValue = {
+  aspect: 16 / 9,
+  width: 50,
+  height: 50,
+  x: 0,
+  y: 0,
+};
+
 const ImageCropper = ({
   file,
   onChange,
@@ -18,19 +26,18 @@ const ImageCropper = ({
   imageRect,
   onImageRectChange,
 }) => {
-  const [crop, setCrop] = useState({
-    aspect: 16 / 9,
-    width: 50,
-    height: 50,
-    x: 0,
-    y: 0,
-  });
+  const [crop, setCrop] = useState(initCropValue);
   const imageRef = useRef(null);
 
   const imageSrc = useCreateObjectUrl(file);
 
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const handleClose = () => {
+    onClose();
+    setCrop(initCropValue);
+  };
 
   const onCropComplete = useCallback(
     (crop) => {
@@ -62,7 +69,7 @@ const ImageCropper = ({
         onChange(blob);
       });
     },
-    [onChange, onClose]
+    [onChange]
   );
 
   // Update crop state based on input field changes
@@ -75,7 +82,7 @@ const ImageCropper = ({
     <Draggable>
       <Popover
         open={isOpen}
-        onClose={onClose}
+        onClose={handleClose}
         anchorOrigin={{
           vertical: "top",
           horizontal: "center",
@@ -88,9 +95,12 @@ const ImageCropper = ({
           paper: {
             style: {
               maxWidth: fullScreen ? "100vw" : "50vw",
-              maxHeight: fullScreen ? "100vh" : "70vh",
+              maxHeight: "100vh",
               padding: 20,
               zIndex: 100500,
+
+              display: "flex",
+              flexDirection: "column",
             },
           },
         }}
@@ -144,7 +154,7 @@ const ImageCropper = ({
                   style={{ width: 60, marginRight: 8 }}
                 />
               </Box>
-              <IconButton onClick={onClose}>
+              <IconButton onClick={handleClose}>
                 <CloseIcon />
               </IconButton>
             </Box>
