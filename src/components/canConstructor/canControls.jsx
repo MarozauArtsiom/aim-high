@@ -1,7 +1,13 @@
 import FileUploadButton from "./fileUploadButton/fileUploadButton";
 import { CirclePicker, ChromePicker as ReactColorPicker } from "react-color";
 import { useState, useRef } from "react";
-import { Popover, Button, Checkbox, FormControlLabel } from "@mui/material";
+import {
+  Popover,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  Grid,
+} from "@mui/material";
 import classNames from "classnames";
 import UnderlinedText from "./../underlineText";
 import { CAN_COLOR_LABEL_MAP } from "../const";
@@ -9,7 +15,7 @@ import { toCanvas } from "html-to-image";
 import download from "downloadjs";
 import LoadingButton from "@mui/lab/LoadingButton";
 
-const circleSize = 24;
+const circleSize = 20;
 const circleSpacing = 8;
 const countInRow = 7;
 
@@ -138,7 +144,7 @@ export default function CanControls({
   };
 
   return (
-    <div className="c-can-controls-group">
+    <Grid container rowGap={3}>
       <div className="c-upload-group">
         <FileUploadButton
           label="logo 1"
@@ -152,20 +158,9 @@ export default function CanControls({
           imageRect={imageRect2}
           onImageRectChange={onImageRectChange2}
         />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={isWaterLayerVisible}
-              onChange={(event) =>
-                onChangeWaterLayerVisible(event.target.checked)
-              }
-            />
-          }
-          label="Show water layer"
-        />
       </div>
-      <div className="c-color-picker-group">
-        <div>
+      <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid item sm={12} md={6}>
           <ColorPicker
             colors={["#FDFDFD", "#0C0C0C", "#FACC15"]}
             onChange={onChangeCanColor}
@@ -173,8 +168,20 @@ export default function CanControls({
             valueLabel={CAN_COLOR_LABEL_MAP[canColor]}
             color={canColor}
           />
-        </div>
-        <div>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={isWaterLayerVisible}
+                onChange={(event) =>
+                  onChangeWaterLayerVisible(event.target.checked)
+                }
+              />
+            }
+            label="Show water layer"
+          />
+        </Grid>
+
+        <Grid item sm={12} md={6}>
           <ColorPicker
             colors={[
               "#FDFDFD",
@@ -197,8 +204,8 @@ export default function CanControls({
             color={aimHighLogoColor}
             isCustomColorAllowed={true}
           />
-        </div>
-        <div>
+        </Grid>
+        <Grid item sm={12} md={6}>
           <ColorPicker
             colors={[
               "#FDFDFD",
@@ -221,8 +228,8 @@ export default function CanControls({
             color={stickerColor}
             isCustomColorAllowed={true}
           />
-        </div>
-        <div>
+        </Grid>
+        <Grid item sm={12} md={6}>
           <ColorPicker
             colors={[
               "#FDFDFD",
@@ -245,8 +252,8 @@ export default function CanControls({
             color={backgroundColor}
             isCustomColorAllowed={true}
           />
-        </div>
-      </div>
+        </Grid>
+      </Grid>
       <LoadingButton
         variant="contained"
         color="primary"
@@ -258,6 +265,6 @@ export default function CanControls({
       >
         Download Mock up
       </LoadingButton>
-    </div>
+    </Grid>
   );
 }

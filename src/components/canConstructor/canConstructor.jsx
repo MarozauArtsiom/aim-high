@@ -66,7 +66,7 @@ export default function CanConstructor() {
               isWaterLayerVisible={isWaterLayerVisible}
             />
           </Grid>
-          <Grid item sm={12} md={6}>
+          <Grid item sm={12} md={6} style={{ margin: "auto" }}>
             <CanControls
               onChangeLogo1={setLogo1}
               onChangeLogo2={setLogo2}
