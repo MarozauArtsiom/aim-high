@@ -34,7 +34,7 @@
   z-index: 200;
   width: 240px;
   left: 10px;
-  top: 180px;
+  top: 195px;
 }
 
 .c-custom-can__logo1 {
@@ -47,15 +47,15 @@
 .c-custom-can__logo2 {
   position: absolute;
   z-index: 300;
-  left: 85px;
-  top: 290px;
+  left: 90px;
+  top: 300px;
 }
 
 .c-can-result__can-text {
   position: absolute;
   z-index: 300;
-  left: 20px;
-  top: 480px;
+  left: 30px;
+  top: 520px;
   width: 210px;
 }
 
