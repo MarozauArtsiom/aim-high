@@ -1,11 +1,10 @@
 import "./can-custom-view.css";
 import CanAimLogo from "./can-aim-logo/can-aim-logo";
 import CanBackLogo from "../canBackLogo/canBackLogo";
-import { useCreateObjectUrl } from "../../hooks/image";
 import CanView from "./canView";
-import BrandLogoMock from "../../assets/brand_logo_mock.svg";
 import ImageCropper from "../imageCropper/imageCropper";
 import { useState, useRef } from "react";
+import CustomLogo from "../customLogo/customLogo";
 
 export default function CustomizedCanView({
   logoFile1,
@@ -27,9 +26,6 @@ export default function CustomizedCanView({
 
   isWaterLayerVisible,
 }) {
-  const logo1 = useCreateObjectUrl(logoFile1, BrandLogoMock);
-  const logo2 = useCreateObjectUrl(logoFile2, BrandLogoMock);
-
   const canContainerRef = useRef(null);
 
   const [imageCroperProps, setImageCroperProps] = useState({
@@ -55,62 +51,22 @@ export default function CustomizedCanView({
           <div className="c-custom-can__aim-logo">
             <CanAimLogo color={aimHighLogoColor} />
           </div>
-          <button
-            className="c-custom-can__logo1 button-reset"
-            disabled={!logoFile1}
-            onClick={() =>
-              setImageCroperProps({
-                isOpen: true,
-                file: logoFile1,
-                onChange: setLogoFile1,
-                crop: logoFile1,
-                imageRect: imageRect1,
-                onImageRectChange: (val) => {
-                  setImageCroperProps((crop) => ({ ...crop, imageRect: val }));
-                  onImageRectChange1(val);
-                },
-              })
-            }
-          >
-            <img
-              src={logo1}
-              width={imageRect1.width}
-              height={imageRect1.height}
-              style={{
-                transform: `translate(${imageRect1.x}px, ${
-                  0 - imageRect1.y
-                }px)`,
-              }}
-            />
-          </button>
-          <button
-            className="c-custom-can__logo2 button-reset"
-            disabled={!logoFile2}
-            onClick={() =>
-              setImageCroperProps({
-                isOpen: true,
-                file: logoFile2,
-                onChange: setLogoFile2,
-                crop: logoFile2,
-                imageRect: imageRect2,
-                onImageRectChange: (val) => {
-                  setImageCroperProps((crop) => ({ ...crop, imageRect: val }));
-                  onImageRectChange2(val);
-                },
-              })
-            }
-          >
-            <img
-              src={logo2}
-              width={imageRect2.width}
-              height={imageRect2.height}
-              style={{
-                transform: `translate(${imageRect2.x}px, ${
-                  0 - imageRect2.y
-                }px)`,
-              }}
-            />
-          </button>
+          <CustomLogo
+            className="c-custom-can__logo1"
+            file={logoFile1}
+            setFile={setLogoFile1}
+            setImageCroperProps={setImageCroperProps}
+            onImageRectChange={onImageRectChange1}
+            imageRect={imageRect1}
+          />
+          <CustomLogo
+            className="c-custom-can__logo2"
+            file={logoFile2}
+            setFile={setLogoFile2}
+            setImageCroperProps={setImageCroperProps}
+            onImageRectChange={onImageRectChange2}
+            imageRect={imageRect2}
+          />
           <div className="c-custom-can__target">
             <CanBackLogo color={stickerColor} />
           </div>
