@@ -30,7 +30,6 @@ const ImageCropper = ({
 
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  console.log("fullScreen", fullScreen);
 
   const onCropComplete = useCallback(
     (crop) => {
