@@ -14,7 +14,11 @@ const canEdgesImage = {
   Gold: edgeGold,
 };
 
-export default function CanView({ canColor, stickerColor }) {
+export default function CanView({
+  canColor,
+  stickerColor,
+  isWaterLayerVisible,
+}) {
   const canColorName = CAN_COLOR_LABEL_MAP[canColor];
   const linkToCap = canEdgesImage[canColorName];
 
@@ -37,12 +41,14 @@ export default function CanView({ canColor, stickerColor }) {
         alt="Soda Shadows"
         className="soda-layer shadows-layer"
       />
-      <img
-        src={canWaterImage}
-        aria-hidden
-        alt="Soda Water"
-        className="soda-layer can-water-layer"
-      ></img>
+      {isWaterLayerVisible && (
+        <img
+          src={canWaterImage}
+          aria-hidden
+          alt="Soda Water"
+          className="soda-layer can-water-layer"
+        ></img>
+      )}
       <div
         className="place-holder-to-keep-object-size"
         style={{ height: 600 }}

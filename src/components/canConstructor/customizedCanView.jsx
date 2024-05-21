@@ -23,6 +23,9 @@ export default function CustomizedCanView({
   canColor,
   stickerColor,
   backgroundColor,
+  aimHighLogoColor,
+
+  isWaterLayerVisible,
 }) {
   const logo1 = useCreateObjectUrl(logoFile1, BrandLogoMock);
   const logo2 = useCreateObjectUrl(logoFile2, BrandLogoMock);
@@ -50,7 +53,7 @@ export default function CustomizedCanView({
         <div className="magic-background-light"></div>
         <div className="c-custom-can-view-result" id="can-result">
           <div className="c-custom-can__aim-logo">
-            <CanAimLogo color={stickerColor} />
+            <CanAimLogo color={aimHighLogoColor} />
           </div>
           <button
             className="c-custom-can__logo1 button-reset"
@@ -112,7 +115,11 @@ export default function CustomizedCanView({
             <CanBackLogo color={stickerColor} />
           </div>
           <div id="can-result-view" className="can-result__can-view">
-            <CanView canColor={canColor} stickerColor={backgroundColor} />
+            <CanView
+              canColor={canColor}
+              stickerColor={backgroundColor}
+              isWaterLayerVisible={isWaterLayerVisible}
+            />
           </div>
           <div
             className="c-can-result__can-text"

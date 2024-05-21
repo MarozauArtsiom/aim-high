@@ -24,6 +24,9 @@ export default function CanConstructor() {
   const [canColor, setCanColor] = useState("#FDFDFD");
   const [stickerColor, setStickerColor] = useState("#0C0C0C");
   const [backgroundColor, setBackgroundColor] = useState("#FDFDFD");
+  const [aimHighLogoColor, setAimHighLogoColor] = useState("#0C0C0C");
+
+  const [isWaterLayerVisible, setIsWaterLayerVisible] = useState(true);
 
   const [imageRect1, setImageRect1] = useState(initialImageReact1);
   const [imageRect2, setImageRect2] = useState(initialImageReact2);
@@ -55,10 +58,12 @@ export default function CanConstructor() {
               canColor={canColor}
               stickerColor={stickerColor}
               backgroundColor={backgroundColor}
+              aimHighLogoColor={aimHighLogoColor}
               imageRect1={imageRect1}
               imageRect2={imageRect2}
               onImageRectChange1={setImageRect1}
               onImageRectChange2={setImageRect2}
+              isWaterLayerVisible={isWaterLayerVisible}
             />
           </Grid>
           <Grid item sm={12} md={6}>
@@ -75,6 +80,10 @@ export default function CanConstructor() {
               imageRect2={imageRect2}
               onImageRectChange1={setImageRect1}
               onImageRectChange2={setImageRect2}
+              isWaterLayerVisible={isWaterLayerVisible}
+              onChangeWaterLayerVisible={setIsWaterLayerVisible}
+              onChangeAimHighLogoColor={setAimHighLogoColor}
+              aimHighLogoColor={aimHighLogoColor}
             />
           </Grid>
         </Grid>

@@ -1,7 +1,7 @@
 import FileUploadButton from "./fileUploadButton/fileUploadButton";
 import { CirclePicker, ChromePicker as ReactColorPicker } from "react-color";
 import { useState, useRef } from "react";
-import { Popover, Button } from "@mui/material";
+import { Popover, Button, Checkbox, FormControlLabel } from "@mui/material";
 import classNames from "classnames";
 import UnderlinedText from "./../underlineText";
 import { CAN_COLOR_LABEL_MAP } from "../const";
@@ -101,10 +101,15 @@ export default function CanControls({
   onChangeCanColor,
   onChangeStickerColor,
   onChangeBackgroundColor,
+  onChangeWaterLayerVisible,
+  onChangeAimHighLogoColor,
 
   canColor,
   stickerColor,
   backgroundColor,
+  aimHighLogoColor,
+
+  isWaterLayerVisible,
 
   imageRect1,
   imageRect2,
@@ -147,6 +152,17 @@ export default function CanControls({
           imageRect={imageRect2}
           onImageRectChange={onImageRectChange2}
         />
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={isWaterLayerVisible}
+              onChange={(event) =>
+                onChangeWaterLayerVisible(event.target.checked)
+              }
+            />
+          }
+          label="Show water layer"
+        />
       </div>
       <div className="c-color-picker-group">
         <div>
@@ -156,6 +172,30 @@ export default function CanControls({
             label="CAN COLOR"
             valueLabel={CAN_COLOR_LABEL_MAP[canColor]}
             color={canColor}
+          />
+        </div>
+        <div>
+          <ColorPicker
+            colors={[
+              "#FDFDFD",
+              "#EF4444",
+              "#F97316",
+              "#FACC15",
+              "#4ADE80",
+              "#2DD4BF",
+              "#3B82F6",
+              "#333333",
+              "#F43F5E",
+              "#D946EF",
+              "#8B5CF6",
+              "#0EA5E9",
+              "#10B981",
+              "#84CC16",
+            ]}
+            onChange={onChangeAimHighLogoColor}
+            label="Aim high logo color"
+            color={aimHighLogoColor}
+            isCustomColorAllowed={true}
           />
         </div>
         <div>
