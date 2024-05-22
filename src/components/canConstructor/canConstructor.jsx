@@ -53,8 +53,6 @@ export default function CanConstructor() {
             <CustomizedCanView
               logoFile1={logoFile1}
               logoFile2={logoFile2}
-              setLogoFile1={setLogo1}
-              setLogoFile2={setLogo2}
               canColor={canColor}
               stickerColor={stickerColor}
               backgroundColor={backgroundColor}
