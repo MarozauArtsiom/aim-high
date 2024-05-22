@@ -2,6 +2,8 @@
 :root {
   --padding-vertical: 126px;
   --padding-horizontal: 26px;
+
+  --can-z-index-water-layer: 100; 
 }
 
 body {

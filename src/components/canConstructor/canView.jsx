@@ -18,6 +18,7 @@ export default function CanView({
   canColor,
   stickerColor,
   isWaterLayerVisible,
+  children,
 }) {
   const canColorName = CAN_COLOR_LABEL_MAP[canColor];
   const linkToCap = canEdgesImage[canColorName];
@@ -54,6 +55,7 @@ export default function CanView({
         style={{ height: 600 }}
         aria-hidden
       ></div>
+      {children}
     </div>
   );
 }

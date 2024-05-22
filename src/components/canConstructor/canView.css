@@ -24,6 +24,7 @@
 .can-water-layer {
   width: 640px;
   height: 640px;
+  z-index: calc(var(--can-z-index-water-layer) + 1);
   opacity: 0.5;
 }
 

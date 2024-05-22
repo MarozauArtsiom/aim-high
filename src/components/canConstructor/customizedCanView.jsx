@@ -29,9 +29,6 @@ export default function CustomizedCanView({
       <div className="c-customized-can-view-container" ref={canContainerRef}>
         <div className="magic-background-light"></div>
         <div className="c-custom-can-view-result" id="can-result">
-          <div className="c-custom-can__aim-logo">
-            <CanAimLogo color={aimHighLogoColor} />
-          </div>
           <CustomLogo
             className="c-custom-can__logo1"
             file={logoFile1}
@@ -52,7 +49,11 @@ export default function CustomizedCanView({
               canColor={canColor}
               stickerColor={backgroundColor}
               isWaterLayerVisible={isWaterLayerVisible}
-            />
+            >
+              <div className="c-custom-can__aim-logo">
+                <CanAimLogo color={aimHighLogoColor} />
+              </div>
+            </CanView>
           </div>
           <div
             className="c-can-result__can-text"

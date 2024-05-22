@@ -9,7 +9,7 @@
   left: 23px;
   height: 80px;
   width: 100px;
-  z-index: 100;
+  z-index: var(--can-z-index-water-layer);
 }
 
 .magic-background-light {
