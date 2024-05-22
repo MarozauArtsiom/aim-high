@@ -76,7 +76,7 @@ export default function CustomLogo({
 
   return (
     <div
-      className={className}
+      className={`${className} c-custom-logo`}
       style={{
         transform: `translate(${imageRect.x}px, ${imageRect.y}px)`,
       }}
