@@ -74,9 +74,6 @@ export default function CustomLogo({
     }
   }
 
-  console.log("isDragActive", isDragActive);
-  console.log("isResizeActive", isResizeActive);
-
   return (
     <div
       className={className}
