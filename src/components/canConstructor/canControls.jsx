@@ -19,7 +19,7 @@ const circleSize = 20;
 const circleSpacing = 8;
 const countInRow = 7;
 
-function ColorPicker({
+export function ColorPicker({
   colors,
   onChange,
   valueLabel,
